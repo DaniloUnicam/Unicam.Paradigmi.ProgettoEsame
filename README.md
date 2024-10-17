@@ -1,1 +1,0 @@
-# Unicam.Paradigmi.ProgettoEsame
