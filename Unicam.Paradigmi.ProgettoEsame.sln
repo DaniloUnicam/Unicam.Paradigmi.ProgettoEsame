@@ -5,9 +5,9 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.Web", "Unicam.Paradigmi.ProgettoEsame\Unicam.Paradigmi.Web.csproj", "{F5B7C32F-B5EA-4502-8994-C5804F4B553F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicam.Paradigmi.Models", "Models\Unicam.Paradigmi.Models.csproj", "{77C038C3-5632-4817-B24C-B82C8517229F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.Application", "Unicam.Paradigmi.Application\Unicam.Paradigmi.Application.csproj", "{A9003F44-4739-4DA4-91FA-9D461C16B68B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicam.Paradigmi.Application", "Unicam.Paradigmi.Application\Unicam.Paradigmi.Application.csproj", "{A9003F44-4739-4DA4-91FA-9D461C16B68B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.Models", "Unicam.Paradigmi.Models\Unicam.Paradigmi.Models.csproj", "{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{F5B7C32F-B5EA-4502-8994-C5804F4B553F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5B7C32F-B5EA-4502-8994-C5804F4B553F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5B7C32F-B5EA-4502-8994-C5804F4B553F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77C038C3-5632-4817-B24C-B82C8517229F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77C038C3-5632-4817-B24C-B82C8517229F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77C038C3-5632-4817-B24C-B82C8517229F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77C038C3-5632-4817-B24C-B82C8517229F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A9003F44-4739-4DA4-91FA-9D461C16B68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A9003F44-4739-4DA4-91FA-9D461C16B68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9003F44-4739-4DA4-91FA-9D461C16B68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9003F44-4739-4DA4-91FA-9D461C16B68B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

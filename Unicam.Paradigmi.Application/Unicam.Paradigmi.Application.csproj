@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Unicam.Paradigmi.Models.csproj" />
+    <ProjectReference Include="..\Unicam.Paradigmi.Models\Unicam.Paradigmi.Models.csproj" />
   </ItemGroup>
 
 </Project>

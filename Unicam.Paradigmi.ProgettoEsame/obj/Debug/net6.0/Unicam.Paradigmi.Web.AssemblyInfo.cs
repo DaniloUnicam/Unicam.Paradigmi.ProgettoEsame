@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Unicam.Paradigmi.Application")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Unicam.Paradigmi.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee099f40b6b558b6673a8ed7e4ad38ca429de888")]
-[assembly: System.Reflection.AssemblyProductAttribute("Unicam.Paradigmi.Application")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Unicam.Paradigmi.Application")]
+[assembly: System.Reflection.AssemblyProductAttribute("Unicam.Paradigmi.Web")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Unicam.Paradigmi.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generato dalla classe WriteCodeFragment di MSBuild.
