@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\Services\" />
     <Folder Include="Middlewares\" />
     <Folder Include="Models\Dtos\" />
     <Folder Include="Models\Responses\" />
@@ -15,7 +14,14 @@
     <Folder Include="Properties\" />
     <Folder Include="Validators\" />
     <Folder Include="Options\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Unicam.Paradigmi.Models.csproj" />
   </ItemGroup>
 
 </Project>

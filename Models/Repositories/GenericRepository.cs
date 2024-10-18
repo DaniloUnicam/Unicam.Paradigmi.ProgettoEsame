@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Unicam.Paradigmi.Models.Context;
 
 namespace Unicam.Paradigmi.Models.Repositories
@@ -23,9 +18,12 @@ namespace Unicam.Paradigmi.Models.Repositories
 			_ctx.Entry(entity).State = EntityState.Modified;
 
 
-		public T Ottieni(T id) => id != null ? _ctx.Set<T>().Find(id) : throw new NullReferenceException("Id sconosciuto");
+		public T Ottieni(Object id) => id != null ?
+			_ctx.Set<T>().Find(id) : throw new NullReferenceException("Id sconosciuto");
 
-		public void Elimina(T id)
+		public List<T> OttieniTutti() => _ctx.Set<T>().ToList();
+
+		public void Elimina(Object id)
 		{
 			var entity = Ottieni(id);
 			_ctx.Entry(entity).State = EntityState.Deleted;
