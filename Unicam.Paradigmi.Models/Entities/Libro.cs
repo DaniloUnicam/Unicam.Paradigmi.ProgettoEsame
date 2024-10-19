@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
-namespace Unicam.Paradigmi.Models.Entities { 
+namespace Unicam.Paradigmi.Models.Entities
+{
 
 	public class Libro
 	{
-		public Libro() 
+		public Libro()
 		{
 			Nome = string.Empty;
 			Autore = string.Empty;
@@ -24,10 +20,10 @@ namespace Unicam.Paradigmi.Models.Entities {
 
 		public string Autore { get; set; }
 
-		public DateTime DataDiPubblicazione {  get; set; }
+		public DateTime DataDiPubblicazione { get; set; }
 
 		public string Editore { get; set; }
 
-		public ICollection<Categoria> Categorie {  get; set; }
+		public ICollection<Categoria> Categorie { get; set; }
 	}
 }
