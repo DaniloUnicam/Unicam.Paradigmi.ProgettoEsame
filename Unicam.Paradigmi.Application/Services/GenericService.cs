@@ -4,58 +4,59 @@ namespace Unicam.Paradigmi.Application.Services
 {
 	public class GenericService<T> where T : class
 	{
-		private readonly GenericRepository<T> _repository;
+		public readonly GenericRepository<T> _repository;
 
 		public GenericService(GenericRepository<T> genericRepository)
 			=> _repository = genericRepository;
 
-		public List<T> OttieniTutti() => _repository.OttieniTutti();
+		public List<T> GetAllEntitiesAsList() => _repository.GetAllEntitiesAsList();
 
-		public void AddEntita(T entita)
+		public void AddEntity(T entity)
 		{
-			verificaNull(entita);
-			_repository.Aggiungi(entita);
+			verifyNullEntity(entity);
+			_repository.AddEntity(entity);
 			_repository.Save();
 		}
 
-		public T Ottieni(T id) => _repository.Ottieni(id);
+		public T GetEntity(T entity) => _repository.GetEntity(entity);
 
-		public void Modifica(T entity)
+		public void ApplyChange(T entity)
 		{
-			verificaNull(entity);
-			_repository.Modifica(entity);
+			verifyNullEntity(entity);
+			_repository.ApplyChange(entity);
 		}
 
-		public void Elimina(T entity)
+		public void Delete(T entity)
 		{
-			verificaNull(entity);
-			_repository.Elimina(entity);
+			verifyNullEntity(entity);
+			_repository.Delete(entity);
 		}
 
-		public bool Contiene(T entity)
+		public bool ContainsEntity(T entity)
 		{
-			verificaNull(entity);
-			return _repository.Contiene(entity);
+			verifyNullEntity(entity);
+			return _repository.ContainsEntity(entity);
 		}
 
-		public bool ContieneNome(string entity)
+		public bool ContainsName(string entity)
 		{
-			return _repository.ContieneNome(entity); 
+			return _repository.ContainsName(entity);
 		}
 
-		public bool CategoriaVuota(string nomeCategoria)
+		public bool EmptyCategory(string nomeCategoria)
 		{
-			return _repository.CategoriaVuota(nomeCategoria);
+			return _repository.EmptyCategory(nomeCategoria);
 		}
 
-		public void Salva() => _repository.Save();
+		public void Save() => _repository.Save();
 
-		private void verificaNull(T entita)
+		private void verifyNullEntity(T entity)
 		{
-			if (entita == null)
+			if (entity == null)
 			{
 				throw new ArgumentNullException("Entità inserita nulla");
 			}
+
 		}
 	}
 }

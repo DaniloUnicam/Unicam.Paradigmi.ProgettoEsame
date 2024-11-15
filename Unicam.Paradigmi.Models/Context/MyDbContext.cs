@@ -22,11 +22,11 @@ namespace Unicam.Paradigmi.Models.Context
 
 		}
 
-		public DbSet<Libro> Libri { get; set; }
+		public DbSet<Book> Books { get; set; }
 
-		public DbSet<Utente> Utenti { get; set; }
+		public DbSet<User> Users { get; set; }
 
-		public DbSet<Categoria> Categorie { get; set; }
+		public DbSet<Category> Categories { get; set; }
 
 		/**
 		 * Il context si occuperà della connessione al database

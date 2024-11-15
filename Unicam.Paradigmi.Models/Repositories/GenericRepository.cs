@@ -12,21 +12,21 @@ namespace Unicam.Paradigmi.Models.Repositories
 			_ctx = ctx;
 		}
 
-		public void Aggiungi(T entity) => _ctx.Set<T>().Add(entity);
+		public void AddEntity(T entity) => _ctx.Set<T>().Add(entity);
 
-		public void Modifica(T entity) =>
+		public void ApplyChange(T entity) =>
 			_ctx.Entry(entity).State = EntityState.Modified;
 
 
-		public T Ottieni(T id) => id != null ?
-			_ctx.Set<T>().Find(id) : throw new NullReferenceException("Id sconosciuto");
+		public T GetEntity(T entity) => entity != null ?
+			_ctx.Set<T>().Find(entity) : throw new NullReferenceException("Id sconosciuto");
 
-		public List<T> OttieniTutti() => _ctx.Set<T>().ToList();
-		public bool Contiene(T entity)
+		public List<T> GetAllEntitiesAsList() => _ctx.Set<T>().ToList();
+		public bool ContainsEntity(T entity)
 		{
 			return _ctx.Set<T>().Any(e => e.Equals(entity));
 		}
-		public bool ContieneNome(string entity)
+		public bool ContainsName(string entity)
 		{
 			return _ctx.Set<T>().Any(e => e.Equals(entity));
 		}
@@ -35,14 +35,14 @@ namespace Unicam.Paradigmi.Models.Repositories
 		 * Ritorna true se il nome della categoria esiste ed appartiene ad un libro, altrimenti false.
 		 * @param nomeCategoria
 		 */
-		public bool CategoriaVuota(string nomeCategoria)
+		public bool EmptyCategory(string categoryName)
 		{
-			return _ctx.Libri.Any(l => l.Categorie.Any(c => c.Nome == nomeCategoria));
+			return _ctx.Books.Any(l => l.Categories.Any(c => c.Nome == categoryName));
 		}
 
-		public void Elimina(T id)
+		public void Delete(T id)
 		{
-			var entity = this.Ottieni(id);
+			var entity = this.GetEntity(id);
 			_ctx.Entry(entity).State = EntityState.Deleted;
 		}
 
