@@ -12,15 +12,13 @@ namespace Unicam.Paradigmi.Application.Services
 
 		}
 
-		
-
 		public Category GetCategory(Book IdBook, string category)
 		{
 			var book = base.GetEntity(IdBook);
 			return book.Categories.FirstOrDefault(c => c.Equals(category));
 		}
 
-		public List<Category> OttieniCategorie(Book IdLibro)
+		public List<Category> GetCategoriesOfBook(Book IdLibro)
 		{
 			var book = base.GetEntity(IdLibro);
 			return book.Categories.ToList();
@@ -36,6 +34,17 @@ namespace Unicam.Paradigmi.Application.Services
 		{
 			base.Delete(book);
 			base.Save();
+		}
+
+		public async Task UpdateBookAsync(Book book)
+		{
+			base.ApplyChange(book);
+			base.Save();
+		}
+
+		public Book GetBook(int IdBook)
+		{
+			return base.GetEntityById(IdBook);
 		}
 	}
 

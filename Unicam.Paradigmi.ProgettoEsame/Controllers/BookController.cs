@@ -5,6 +5,7 @@ using Unicam.Paradigmi.Application.Models.Dtos;
 using Unicam.Paradigmi.Application.Models.Requests;
 using Unicam.Paradigmi.Application.Models.Responses;
 using Unicam.Paradigmi.Application.Validators;
+using Unicam.Paradigmi.Models.Entities;
 namespace Unicam.Paradigmi.Web.Controllers
 {
 	[ApiController]
@@ -43,16 +44,54 @@ namespace Unicam.Paradigmi.Web.Controllers
 			deleteLibroValidator.Validate(request);
 			var book = request.ToEntity();
 			await _bookService.DeleteBookAsync(book);
+			
+			var response = new DeleteBookResponse
+			{
+				Book = new BookDTO()
+			};
+			return Ok(ResponseFactory.WithSuccess(response));
+			
+		}
 
-			var response = new UploadBookResponse
+		[HttpPut]
+		[Route("update")]
+		public async Task<IActionResult> UpdateBook(UpdateBookRequest request)
+		{
+			var updateLibroValidator = new UpdateBookRequestValidator();
+			updateLibroValidator.Validate(request);
+			var book = request.ToEntity();
+			await _bookService.UpdateBookAsync(book);
+
+			var response = new UpdateBookResponse
 			{
 				Book = new BookDTO()
 			};
 			return Ok(ResponseFactory.WithSuccess(response));
 		}
 
+		[HttpGet]
+		[Route("searchName")]
+		public async Task<IActionResult> SearchBookName(int IdBook)
+		{
+			var Book = _bookService.GetBook(IdBook).Nome;
+			return Ok(ResponseFactory.WithSuccess(IdBook));
+		}
 
+		[HttpGet]
+		[Route("searchCategory")]
+		public async Task<IActionResult> SearchBookCategory(int IdBook,string category)
+		{
+			var Book = _bookService.GetBook(IdBook);
+			var BookCategory = _bookService.GetCategory(Book, category);
+			return Ok(ResponseFactory.WithSuccess(category));
+		}
 
-
+		[HttpGet]
+		[Route("searchAutore")]
+		public async Task<IActionResult> SearchBookAuthor(int IdBook)
+		{
+			var BookAuthor = _bookService.GetBook(IdBook).Autore;
+			return Ok(ResponseFactory.WithSuccess(BookAuthor));
+		}
 	}
 }

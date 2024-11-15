@@ -11,10 +11,12 @@ namespace Unicam.Paradigmi.Application.Abstractions.Services
 	{
 		Category GetCategory(Book IdBook,string category);
 
-		List<Category> OttieniCategorie(Book IdBook);
+		List<Category> GetCategoriesOfBook(Book IdBook);
 
+		Task UpdateBookAsync(Book book);
 		Task UploadBookAsync(Book book);
-
 		Task DeleteBookAsync(Book book);
+
+		public Book GetBook(int IdBook);
 	}
 }

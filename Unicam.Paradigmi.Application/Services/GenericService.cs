@@ -4,7 +4,7 @@ namespace Unicam.Paradigmi.Application.Services
 {
 	public class GenericService<T> where T : class
 	{
-		public readonly GenericRepository<T> _repository;
+		protected readonly GenericRepository<T> _repository;
 
 		public GenericService(GenericRepository<T> genericRepository)
 			=> _repository = genericRepository;
@@ -19,6 +19,8 @@ namespace Unicam.Paradigmi.Application.Services
 		}
 
 		public T GetEntity(T entity) => _repository.GetEntity(entity);
+
+		public T GetEntityById(int id) => _repository.GetEntityById(id);
 
 		public void ApplyChange(T entity)
 		{

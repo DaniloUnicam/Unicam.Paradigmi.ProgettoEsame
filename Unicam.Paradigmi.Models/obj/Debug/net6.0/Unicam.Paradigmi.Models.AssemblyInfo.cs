@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Unicam.Paradigmi.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea899bdb423e365d9f7c6711cf8a8494404b0d1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eca6994a74d3537ce3a86eaef557cfd64986d5a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Unicam.Paradigmi.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Unicam.Paradigmi.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

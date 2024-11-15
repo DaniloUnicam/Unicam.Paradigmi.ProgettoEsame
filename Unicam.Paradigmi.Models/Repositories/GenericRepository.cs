@@ -21,6 +21,8 @@ namespace Unicam.Paradigmi.Models.Repositories
 		public T GetEntity(T entity) => entity != null ?
 			_ctx.Set<T>().Find(entity) : throw new NullReferenceException("Id sconosciuto");
 
+		public T GetEntityById(int idEntity) => _ctx.Set<T>().Find(idEntity);
+
 		public List<T> GetAllEntitiesAsList() => _ctx.Set<T>().ToList();
 		public bool ContainsEntity(T entity)
 		{
