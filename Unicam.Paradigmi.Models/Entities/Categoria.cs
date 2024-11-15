@@ -1,8 +1,15 @@
 ﻿namespace Unicam.Paradigmi.Models.Entities
 {
-	public enum Categoria
+	public class Categoria
 	{
-		// Narrativa (Fiction)
+        public Categoria()
+        {
+
+        }
+
+        public string Nome { get; set; } = string.Empty;
+
+		/*// Narrativa (Fiction)
 		ROMANZO, RACCONTI_BREVI, FANTASY, FANTASCIENZA, GIALLO_THRILLER, HORROR, AVVENTURA,
 		ROMANZO_ROSA, ROMANZO_STORICO, NOIR, SATIRA, SAGGISTICA_NARRATIVA, DISTOPIA_UTOPIA,
 		LETTERATURA_PER_BAMBINI, LETTERATURA_PER_GIOVANI_ADULTI_YA, GRAPHIC_NOVEL, ROMANZO_PSICOLOGICO,
@@ -27,5 +34,6 @@
 		// Altri Generi e Categorie Speciali
 		LIBRI_PER_BAMBINI_PICTURE_BOOKS, FUMETTI, ALMANACCHI, ENCICLOPEDIE, ATLANTI, CALENDARI_E_AGENDE,
 		LIBRI_INTERATTIVI, LIBRI_AUDIO, E_BOOK
+		*/
 	}
 }

@@ -18,7 +18,7 @@ namespace Unicam.Paradigmi.Application.Services
 			_repository.Save();
 		}
 
-		public T Ottieni(int id) => _repository.Ottieni(id);
+		public T Ottieni(T id) => _repository.Ottieni(id);
 
 		public void Modifica(T entity)
 		{
@@ -30,6 +30,22 @@ namespace Unicam.Paradigmi.Application.Services
 		{
 			verificaNull(entity);
 			_repository.Elimina(entity);
+		}
+
+		public bool Contiene(T entity)
+		{
+			verificaNull(entity);
+			return _repository.Contiene(entity);
+		}
+
+		public bool ContieneNome(string entity)
+		{
+			return _repository.ContieneNome(entity); 
+		}
+
+		public bool CategoriaVuota(string nomeCategoria)
+		{
+			return _repository.CategoriaVuota(nomeCategoria);
 		}
 
 		public void Salva() => _repository.Save();

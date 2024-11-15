@@ -14,7 +14,7 @@ namespace Unicam.Paradigmi.Models.Context
 	{
 		public MyDbContext()
 		{
-			
+
 		}
 
 		public MyDbContext(DbContextOptions<MyDbContext> config) : base(config)
@@ -25,6 +25,8 @@ namespace Unicam.Paradigmi.Models.Context
 		public DbSet<Libro> Libri { get; set; }
 
 		public DbSet<Utente> Utenti { get; set; }
+
+		public DbSet<Categoria> Categorie { get; set; }
 
 		/**
 		 * Il context si occuperà della connessione al database

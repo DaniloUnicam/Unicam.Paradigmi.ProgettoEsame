@@ -8,11 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Middlewares\" />
-    <Folder Include="Models\Dtos\" />
-    <Folder Include="Models\Responses\" />
-    <Folder Include="Models\Requests\" />
     <Folder Include="Properties\" />
-    <Folder Include="Validators\" />
     <Folder Include="Options\" />
   </ItemGroup>
 

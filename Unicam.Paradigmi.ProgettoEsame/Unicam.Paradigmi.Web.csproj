@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Unicam.Paradigmi.Application\Unicam.Paradigmi.Application.csproj" />
+    <ProjectReference Include="..\Unicam.Paradigmi.Models\Unicam.Paradigmi.Models.csproj" />
   </ItemGroup>
 
 </Project>

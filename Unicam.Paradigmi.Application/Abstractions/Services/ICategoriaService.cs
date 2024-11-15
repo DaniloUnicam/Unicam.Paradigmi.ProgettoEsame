@@ -7,12 +7,14 @@ using Unicam.Paradigmi.Models.Entities;
 
 namespace Unicam.Paradigmi.Application.Abstractions.Services
 {
-	public interface ILibroService
+	public interface ICategoriaService
 	{
-		Categoria OttieniCategoria(Libro IdLibro,string categoria);
+		public bool CategoriaVuota(string nomeCategoria);
 
-		List<Categoria> OttieniCategorie(Libro IdLibro);
+		Task AddCategoriaAsync(Categoria categoria);
 
-		Task UploadLibroAsync(Libro libro);
+		Task DeleteCategoriaAsync(Categoria categoria);
+
+
 	}
 }

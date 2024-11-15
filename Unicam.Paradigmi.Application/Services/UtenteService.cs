@@ -15,5 +15,11 @@ namespace Unicam.Paradigmi.Application.Services
         {
             
         }
-    }
+
+		public async Task AddUtenteAsync(Utente utente)
+		{
+			base.AddEntita(utente);
+			base.Salva();
+		}
+	}
 }

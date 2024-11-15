@@ -12,18 +12,23 @@ namespace Unicam.Paradigmi.Application.Services
 
 		}
 
-		public Categoria OttieniCategoria(int IdLibro, string categoria)
+		public Categoria OttieniCategoria(Libro IdLibro, string categoria)
 		{
 			var libro = base.Ottieni(IdLibro);
 			return libro.Categorie.FirstOrDefault(c => c.Equals(categoria));
 		}
 
-		public List<Categoria> OttieniCategorie(int IdLibro)
+		public List<Categoria> OttieniCategorie(Libro IdLibro)
 		{
 			var libro = base.Ottieni(IdLibro);
 			return libro.Categorie.ToList();
 		}
 
+		public async Task UploadLibroAsync(Libro libro)
+		{
+			base.AddEntita(libro);
+			base.Salva();
+		}
 	}
 
 

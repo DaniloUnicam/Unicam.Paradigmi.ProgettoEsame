@@ -18,14 +18,31 @@ namespace Unicam.Paradigmi.Models.Repositories
 			_ctx.Entry(entity).State = EntityState.Modified;
 
 
-		public T Ottieni(Object id) => id != null ?
+		public T Ottieni(T id) => id != null ?
 			_ctx.Set<T>().Find(id) : throw new NullReferenceException("Id sconosciuto");
 
 		public List<T> OttieniTutti() => _ctx.Set<T>().ToList();
-
-		public void Elimina(Object id)
+		public bool Contiene(T entity)
 		{
-			var entity = Ottieni(id);
+			return _ctx.Set<T>().Any(e => e.Equals(entity));
+		}
+		public bool ContieneNome(string entity)
+		{
+			return _ctx.Set<T>().Any(e => e.Equals(entity));
+		}
+
+		/***
+		 * Ritorna true se il nome della categoria esiste ed appartiene ad un libro, altrimenti false.
+		 * @param nomeCategoria
+		 */
+		public bool CategoriaVuota(string nomeCategoria)
+		{
+			return _ctx.Libri.Any(l => l.Categorie.Any(c => c.Nome == nomeCategoria));
+		}
+
+		public void Elimina(T id)
+		{
+			var entity = this.Ottieni(id);
 			_ctx.Entry(entity).State = EntityState.Deleted;
 		}
 
