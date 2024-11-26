@@ -85,7 +85,7 @@ namespace Unicam.Paradigmi.Application.Services
 
 		private static void ModifyNonNullParameters(BookDTO bookDto, Book book)
 		{
-			if (bookDto.BookTitle != null) book.BookTitle = bookDto.BookTitle;
+			if (bookDto.BookTitle != null) book.CategoryName = bookDto.BookTitle;
 
 			if (bookDto.Author != null) book.Author = bookDto.Author;
 

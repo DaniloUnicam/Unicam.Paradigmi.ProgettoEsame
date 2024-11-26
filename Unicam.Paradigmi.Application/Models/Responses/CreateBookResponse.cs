@@ -10,6 +10,6 @@ namespace Unicam.Paradigmi.Application.Models.Responses
 {
 	public class CreateBookResponse
 	{
-		public BookDTO Book { get; set; } = null!;
+		public BookDTO BookDTO { get; set; } = null!;
 	}
 }

@@ -6,17 +6,11 @@ namespace Unicam.Paradigmi.Application.Validators
 {
 	public class DeleteCategoryRequestValidator : AbstractValidator<DeleteCategoryRequest>
 	{
-		private readonly CategoryService _categoriaService;
 
         public DeleteCategoryRequestValidator()
         {
-			RuleFor(n => n.Nome)
-				.NotEmpty()
-				.WithMessage("Il campo Nome non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Nome non può essere nullo")
-				.Must(nome => _categoriaService.EmptyCategory(nome))
-				.WithMessage("La categoria appartiene ad uno o più libri");
+			RuleFor(n => n.IdCategory)
+				.GreaterThanOrEqualTo(0).WithMessage("Illegal Id format");
 
 		}
     }

@@ -17,10 +17,17 @@ namespace Unicam.Paradigmi.Application.Services
 			_userRepository = userRepository;
         }
 
-		public async Task AddUserAsync(User user)
+		public async Task<User> CreateUserAsync(User user)
 		{
+			var emailAlreadyExists = await _userRepository.EmailExistsInDatabaseAsync(user.Email);
+			if(emailAlreadyExists)
+			{
+				throw new InvalidOperationException($"{user.Email} already exists");
+			}
+
 			_userRepository.AddEntity(user);
 			await _userRepository.SaveChangesAsync();
+			return user;
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Unicam.Paradigmi.Application.Models.Requests;
+using Unicam.Paradigmi.Application.Extensions;
 
 namespace Unicam.Paradigmi.Application.Validators
 {
@@ -7,31 +8,34 @@ namespace Unicam.Paradigmi.Application.Validators
 	{
 		public CreateBookRequestValidator()
 		{
-			RuleFor(n => n.Nome)
+			RuleFor(n => n.BookTitle)
 				.NotEmpty()
-				.WithMessage("Il campo Nome non può essere vuoto")
+				.WithMessage("Book's title field can't be empty")
 				.NotNull()
-				.WithMessage("Il campo Nome non può essere nullo");
+				.WithMessage("Book's title field can't be null");
 
-			RuleFor(a => a.Autore)
+			RuleFor(a => a.Author)
 				.NotEmpty()
-				.WithMessage("Il campo Autore non può essere vuoto")
+				.WithMessage("Author field can't be empty")
 				.NotNull()
-				.WithMessage("Il campo Autore non può essere nullo");
+				.WithMessage("Author field can't be null");
 
-			RuleFor(d => d.DataDiPubblicazione)
+			RuleFor(d => d.PublicationDate)
 				.NotEmpty()
-				.WithMessage("Il campo DataDiPubblicazione non può essere vuoto")
+				.WithMessage("PublicationDate field can't be empty")
 				.NotNull()
-				.WithMessage("Il campo DataDiPubblicazione non può essere nullo")
+				.WithMessage("PublicationDate field can't be null")
 				.LessThanOrEqualTo(DateTime.Now)
-				.WithMessage("Il campo DataDiPubblicazione deve contenere una data riferita al passato o attuale, non futura");
+				.WithMessage("PublicationDate field can't be from a future date");
 
-			RuleFor(e => e.Editore)
+			RuleFor(e => e.Editor)
 				.NotEmpty()
-				.WithMessage("Il campo Editore non può essere vuoto")
+				.WithMessage("Editor field can't be empty")
 				.NotNull()
-				.WithMessage("Il campo Editore non può essere nullo");
+				.WithMessage("Editor field can't be null");
+
+			RuleFor(i => i.CategoriesId)
+				.ValidateCollection(v => v >= 0, "Invalid category Id format");
 		}
 	}
 }

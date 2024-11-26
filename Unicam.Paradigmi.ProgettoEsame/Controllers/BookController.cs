@@ -25,32 +25,36 @@ namespace Unicam.Paradigmi.Web.Controllers
 		[Route("create")]
 		public async Task<IActionResult> CreateBookAsync(CreateBookRequest request)
 		{
-			var createLibroValidator = new CreateBookRequestValidator();
-			createLibroValidator.Validate(request);
-			var book = request.ToEntity();
-			await _bookService.CreateBookAsync(book, request.CategorieId);
+			var createBookValidator = new CreateBookRequestValidator();
+			createBookValidator.Validate(request);
 
-			var response = new CreateBookResponse
+			var book = request.ToEntity();
+
+			var result = await _bookService.CreateBookAsync(book, request.CategoriesId);
+
+			var createBookResponse = new CreateBookResponse
 			{
-				Book = new BookDTO()
+				BookDTO = BookDTOFactory.FromBook(result)
 			};
-			return Ok(ResponseFactory.WithSuccess(response));
+			return Ok(ResponseFactory.WithSuccess(createBookResponse));
 		}
 
 		[HttpPut]
 		[Route("update")]
 		public async Task<IActionResult> UpdateBookAsync(UpdateBookRequest request)
 		{
-			var updateLibroValidator = new UpdateBookRequestValidator();
-			updateLibroValidator.Validate(request);
-			var book = request.ToEntity();
-			await _bookService.UpdateBookAsync(book);
+			var updateBookValidator = new UpdateBookRequestValidator();
+			updateBookValidator.Validate(request);
 
-			var response = new UpdateBookResponse
+			var book = request.ToDto();
+
+			var result = await _bookService.UpdateBookAsync(book, request.CategoryIds);
+			
+			var updateBookResponse = new UpdateBookResponse
 			{
 				Book = new BookDTO()
 			};
-			return Ok(ResponseFactory.WithSuccess(response));
+			return Ok(ResponseFactory.WithSuccess(updateBookResponse));
 		}
 
 
@@ -58,44 +62,37 @@ namespace Unicam.Paradigmi.Web.Controllers
 		[Route("delete")]
 		public async Task<IActionResult> DeleteBookAsync(DeleteBookRequest request)
 		{
-			var deleteLibroValidator = new DeleteBookRequestValidator();
-			deleteLibroValidator.Validate(request);
+			var deleteBookValidator = new DeleteBookRequestValidator();
+			deleteBookValidator.Validate(request);
 			
-			await _bookService.DeleteBookAsync();
-			
-			var response = new DeleteBookResponse
+			var result = await _bookService.DeleteBookAsync(request.IdBook);
+
+			var deleteBookResponse = new DeleteBookResponse
 			{
-				Book = new BookDTO()
+				Result = result
 			};
-			return Ok(ResponseFactory.WithSuccess(response));
+			return Ok(ResponseFactory.WithSuccess(deleteBookResponse));
 			
 		}
 
-		
 
-		[HttpGet]
-		[Route("searchName")]
-		public async Task<IActionResult> SearchBookNameAsync(int IdBook)
-		{
-			var Book = _bookService.GetBook(IdBook).Id;
-			return Ok(ResponseFactory.WithSuccess(IdBook));
-		}
 
-		[HttpGet]
-		[Route("searchCategory")]
-		public async Task<IActionResult> SearchBookCategory(int IdBook,string category)
+		[HttpPost]
+		[Route("get")]
+		public async Task<IActionResult> GetBookAsync(GetBookRequest request)
 		{
-			var Book = _bookService.GetBook(IdBook).Id;
-			var BookCategory = _bookService.GetCategory(Book, category);
-			return Ok(ResponseFactory.WithSuccess(category));
-		}
+			var getBookValidator = new GetBookRequestValidator();
+			getBookValidator.Validate(request);
 
-		[HttpGet]
-		[Route("/searchAutore")]
-		public async Task<IActionResult> SearchBookAuthor(int IdBook)
-		{
-			var BookAuthor = await _bookService.GetBook(IdBook).Autore;
-			return Ok(ResponseFactory.WithSuccess(BookAuthor));
+			var result = await _bookService.GetBookAsync(request.Page, request.PageSize, request.BookName,
+				request.PublicationDate, request.Author);
+
+			var getBookResponse = new GetBookResponse
+			{
+				Books = result.Select(BookDTOFactory.FromBook).ToList()
+			};
+
+			return Ok(ResponseFactory.WithSuccess(getBookResponse));
 		}
 	}
 }

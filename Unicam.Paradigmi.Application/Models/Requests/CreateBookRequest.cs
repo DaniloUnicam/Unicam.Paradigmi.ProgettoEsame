@@ -9,24 +9,23 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 {
 	public class CreateBookRequest
 	{
-		public string Nome { get; set; } = string.Empty;
+		public string BookTitle { get; set; } = string.Empty;
 
-		public string Autore { get; set; } = string.Empty;
+		public string Author { get; set; } = string.Empty;
 
-		public DateTime DataDiPubblicazione { get; set; } = new DateTime();
+		public DateTime PublicationDate { get; set; } = new DateTime();
 
-		public string Editore { get; set; } = string.Empty;
-		public ICollection<int> CategorieId { get; set; } = new List<int>();
+		public string Editor { get; set; } = string.Empty;
+		public ICollection<int> CategoriesId { get; set; } = new List<int>();
 
-		public Book ToEntity()
+		public virtual Book ToEntity()
 		{
 			var book = new Book
 			{
-				BookTitle = Nome,
-				Author = Autore,
-				PublishDate = DataDiPubblicazione,
-				Editor = Editore,
-				Categories = Categorie
+				CategoryName = BookTitle,
+				Author = Author,
+				PublishDate = PublicationDate,
+				Editor = Editor
 			};
 			return book;
 		}

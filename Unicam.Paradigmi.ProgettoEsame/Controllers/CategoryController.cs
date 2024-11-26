@@ -20,34 +20,41 @@ namespace Unicam.Paradigmi.Web.Controllers
 
 		[HttpGet]
 		[Route("create")]
-		public async Task<IActionResult> CreateCategory(CreateCategoryRequest request)
+		public async Task<IActionResult> CreateCategoryAsync(CreateCategoryRequest request)
 		{
-			var categoriaValidator = new CreateCategoryRequestValidator();
-			categoriaValidator.Validate(request);
+			var createCategoryValidator = new CreateCategoryRequestValidator();
+			createCategoryValidator.Validate(request);
+
 			var category = request.ToEntity();
-			await _categoryService.AddCategoryAsync(category);
+
+			var createCategory = await _categoryService.CreateCategoryAsync(category);
 
 			var response = new CreateCategoryResponse
 			{
-				Category = new CategoryDTO(category)
+				CategoryDTO = new CategoryDTO
+				{
+					IdCategory = category.IdCategory,
+					BookTitle = category.CategoryName,
+				}
 			};
+
 			return Ok(ResponseFactory.WithSuccess(response));
 		}
 
 		[HttpDelete]
 		[Route("delete")]
-		public async Task<IActionResult> DeleteCategory(DeleteCategoryRequest request)
+		public async Task<IActionResult> DeleteCategoryAsync(DeleteCategoryRequest request)
 		{
 			var categoriaValidator = new DeleteCategoryRequestValidator();
 			categoriaValidator.Validate(request);
-			var category = request.ToEntity();
-			await _categoryService.DeleteCategoryAsync(category);
 
-			var response = new DeleteCategoryResponse
+			var result = await _categoryService.DeleteCategoryAsync(request.IdCategory);
+
+			var deleteCategoryResponse = new DeleteCategoryResponse
 			{
-				Category = new CategoryDTO()
+				Result = result
 			};
-			return Ok(ResponseFactory.WithSuccess(response));
+			return Ok(ResponseFactory.WithSuccess(deleteCategoryResponse));
 		}
 
 

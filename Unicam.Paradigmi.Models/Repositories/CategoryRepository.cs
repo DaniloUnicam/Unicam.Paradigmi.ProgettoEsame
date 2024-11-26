@@ -19,7 +19,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 
 		public async Task<bool> CategoryExists(string name)
 		{
-			return await _ctx.Categories.AnyAsync(c => c.BookTitle == name);
+			return await _ctx.Categories.AnyAsync(c => c.CategoryName == name);
 		}
 
 		public async Task<List<Category>> GetCategoriesAsCollectionAsync(ICollection<int> categoryIds)

@@ -25,7 +25,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 			{
 				throw new KeyNotFoundException("Il nome dell'entità non può essere nullo");
 			}
-			var entity = _ctx.Set<T>().SingleOrDefault(e => e.BookTitle == entityName);
+			var entity = _ctx.Set<T>().SingleOrDefault(e => e.CategoryName == entityName);
 			return entity ?? throw new KeyNotFoundException($"Entità con nome '{entityName}' non trovata");
 		}
 

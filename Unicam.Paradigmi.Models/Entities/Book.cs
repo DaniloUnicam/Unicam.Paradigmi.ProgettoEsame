@@ -8,7 +8,7 @@ namespace Unicam.Paradigmi.Models.Entities
 	{
 		public Book()
 		{
-			BookTitle = string.Empty;
+			CategoryName = string.Empty;
 			Author = string.Empty;
 			PublishDate = new DateTime();
 			Editor = string.Empty;
@@ -17,11 +17,11 @@ namespace Unicam.Paradigmi.Models.Entities
 
 		public int IdBook { get; set; }
 
-		public string BookTitle { get; set; }
+		public string CategoryName { get; set; }
 
 		public string Author { get; set; }
 
-		public DateTime PublishDate { get; set; }
+		public DateTime? PublishDate { get; set; }
 
 		public string Editor { get; set; }
 

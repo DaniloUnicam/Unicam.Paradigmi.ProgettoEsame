@@ -18,21 +18,40 @@ namespace Unicam.Paradigmi.Application.Services
 			_categoryRepository = categoryRepository;
         }
 
-		public async Task AddCategoryAsync(Category category)
+		public async Task<Category> CreateCategoryAsync(Category category)
 		{
+			if(await _categoryRepository.CategoryExists(category.CategoryName))
+			{
+				throw new InvalidOperationException($"{category.CategoryName} already exists");
+			}
+
 			_categoryRepository.AddEntity(category);
 			await _categoryRepository.SaveChangesAsync();
+			return category;
 		}
 
-		public async Task DeleteCategoryAsync(Category category)
+		public async Task<bool> DeleteCategoryAsync(int IdCategory)
 		{
-			_categoryRepository.Delete(category);
+			var category = GetCategoryByIdAsync(IdCategory);
+
+			if (category.Result == null)
+			{
+				throw new KeyNotFoundException($"Category {IdCategory} not found");
+			}
+
+			_categoryRepository.Delete(category.Result);
 			await _categoryRepository.SaveChangesAsync();
+			return true;
 		}
 
-		public bool EmptyCategory(string categoryName)
+		private async Task<Category?> GetCategoryByIdAsync(int id)
 		{
-			return _categoryRepository.EmptyCategory(categoryName);
+			return await _categoryRepository.GetCategoryByIdAsync(id);
+		}
+
+		public async Task<bool> CategoryExists(string categoryName)
+		{
+			return await _categoryRepository.CategoryExists(categoryName);
 		}
 	}
 }

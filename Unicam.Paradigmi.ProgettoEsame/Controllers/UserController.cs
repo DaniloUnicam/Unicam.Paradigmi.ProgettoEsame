@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Unicam.Paradigmi.Application.Abstractions.Services;
 using Unicam.Paradigmi.Application.Factories;
 using Unicam.Paradigmi.Application.Models.Dtos;
@@ -9,6 +10,7 @@ using Unicam.Paradigmi.Application.Validators;
 namespace Unicam.Paradigmi.Web.Controllers
 {
 	[ApiController]
+	[AllowAnonymous]
 	[Route("api/v1/[controller]")]
 	public class UserController : ControllerBase
 	{
@@ -21,16 +23,18 @@ namespace Unicam.Paradigmi.Web.Controllers
 
 		[HttpGet]
 		[Route("create")]
-        public async Task<IActionResult> CreateUser(CreateUserRequest request)
+        public async Task<IActionResult> CreateUserAsync(CreateUserRequest request)
 		{
 			var validateCreatingUser = new CreateUserRequestValidator();
 			validateCreatingUser.Validate(request);
+
 			var user = request.ToEntity();
-			await _userService.AddUserAsync(user);
+
+			var createUserResult = await _userService.CreateUserAsync(user);
 
 			var createUserResponse = new CreateUserResponse
 			{
-				User = new UserDTO(user)
+				UserDTO = new UserDTO(createUserResult)
 			};
 			return Ok(ResponseFactory.WithSuccess(createUserResponse));
 		}

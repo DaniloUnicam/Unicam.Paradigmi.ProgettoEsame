@@ -4,7 +4,7 @@ namespace Unicam.Paradigmi.Models.Entities
 {
 	public class Category : INamedEntity
 	{
-        public string BookTitle { get; set; } = string.Empty;
+        public string CategoryName { get; set; } = string.Empty;
 
 		public int IdCategory { get; set; }
 

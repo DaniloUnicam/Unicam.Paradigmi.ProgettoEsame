@@ -9,6 +9,6 @@ namespace Unicam.Paradigmi.Application.Models.Responses
 {
 	public class DeleteCategoryResponse
 	{
-		public CategoryDTO Category { get; set; } = null!;
+		public bool Result { get; set; }
 	}
 }
