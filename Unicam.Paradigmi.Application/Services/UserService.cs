@@ -9,17 +9,18 @@ using Unicam.Paradigmi.Models.Repositories;
 
 namespace Unicam.Paradigmi.Application.Services
 {
-	public class UserService : GenericService<User>, IUserService
+	public class UserService : IUserService
 	{
-        public UserService(UserRepository userRepository) : base(userRepository)
+		public readonly UserRepository _userRepository;
+        public UserService(UserRepository userRepository)
         {
-            
+			_userRepository = userRepository;
         }
 
 		public async Task AddUserAsync(User user)
 		{
-			base.AddEntity(user);
-			base.Save();
+			_userRepository.AddEntity(user);
+			await _userRepository.SaveChangesAsync();
 		}
 	}
 }

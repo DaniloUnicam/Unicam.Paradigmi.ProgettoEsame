@@ -14,23 +14,23 @@ namespace Unicam.Paradigmi.Application.Models.Dtos
         public BookDTO() { }
 		public BookDTO(Book book)
         {
-			Id = book.IdLibro;
-			Nome = book.Nome;
-			Autore = book.Autore;
-			DataPubblicazione = book.DataDiPubblicazione;
-			Editore = book.Editore;
+			IdBook = book.IdBook;
+			BookTitle = book.BookTitle;
+			Author = book.Author;
+			PublicationDate = book.PublishDate;
+			Editor = book.Editor;
 
 		}
 
-		public int Id { get; set; }
+		public int IdBook { get; set; }
 
-		public string Nome { get; set; } = string.Empty;
+		public string BookTitle { get; set; } = string.Empty;
 
-		public string Autore { get; set; } = string.Empty;
+		public string Author { get; set; } = string.Empty;
 
-		public DateTime DataPubblicazione { get; set; } = new DateTime();
+		public DateTime PublicationDate { get; set; }
 
-		public string Editore { get; set; } = string.Empty;
+		public string Editor { get; set; } = string.Empty;
 
 
 	}

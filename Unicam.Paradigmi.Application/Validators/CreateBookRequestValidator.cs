@@ -3,9 +3,9 @@ using Unicam.Paradigmi.Application.Models.Requests;
 
 namespace Unicam.Paradigmi.Application.Validators
 {
-	public class UploadBookRequestValidator : AbstractValidator<UploadBookRequest>
+	public class CreateBookRequestValidator : AbstractValidator<CreateBookRequest>
 	{
-		public UploadBookRequestValidator()
+		public CreateBookRequestValidator()
 		{
 			RuleFor(n => n.Nome)
 				.NotEmpty()

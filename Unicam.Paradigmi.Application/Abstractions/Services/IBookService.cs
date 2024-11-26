@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unicam.Paradigmi.Application.Models.Dtos;
 using Unicam.Paradigmi.Models.Entities;
 
 namespace Unicam.Paradigmi.Application.Abstractions.Services
 {
 	public interface IBookService
 	{
-		Category GetCategory(Book IdBook,string category);
+		Task<List<Book>> GetBookAsync(int page, int pageSize,
 
-		List<Category> GetCategoriesOfBook(Book IdBook);
+		string? bookName, DateTime? publicationTime, string? author);
 
-		Task UpdateBookAsync(Book book);
-		Task UploadBookAsync(Book book);
-		Task DeleteBookAsync(Book book);
+		Task<Book> CreateBookAsync(Book book, ICollection<int> categoryIds);
 
-		public Book GetBook(int IdBook);
+		Task<Book> UpdateBookAsync(BookDTO bookDto, ICollection<int> categoryIds);
+
+		Task<bool> DeleteBookAsync(int bookId);
+
+
 	}
 }

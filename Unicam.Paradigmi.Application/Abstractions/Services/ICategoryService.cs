@@ -9,7 +9,7 @@ namespace Unicam.Paradigmi.Application.Abstractions.Services
 {
 	public interface ICategoryService
 	{
-		public bool EmptyCategory(string categoryName);
+		bool EmptyCategory(string categoryName);
 
 		Task AddCategoryAsync(Category category);
 

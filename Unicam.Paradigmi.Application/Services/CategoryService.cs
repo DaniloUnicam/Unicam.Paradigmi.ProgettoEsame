@@ -10,24 +10,29 @@ using Unicam.Paradigmi.Models.Repositories;
 
 namespace Unicam.Paradigmi.Application.Services
 {
-	public class CategoryService : GenericService<Category>, ICategoryService
+	public class CategoryService : ICategoryService
 	{
-
-		public CategoryService(CategoryRepository categoryRepository) : base(categoryRepository)
+		public readonly CategoryRepository _categoryRepository;
+		public CategoryService(CategoryRepository categoryRepository) 
         {
-            
+			_categoryRepository = categoryRepository;
         }
 
 		public async Task AddCategoryAsync(Category category)
 		{
-			base.AddEntity(category);
-			base.Save();
+			_categoryRepository.AddEntity(category);
+			await _categoryRepository.SaveChangesAsync();
 		}
 
 		public async Task DeleteCategoryAsync(Category category)
 		{
-			base.Delete(category);
-			base.Save();
+			_categoryRepository.Delete(category);
+			await _categoryRepository.SaveChangesAsync();
+		}
+
+		public bool EmptyCategory(string categoryName)
+		{
+			return _categoryRepository.EmptyCategory(categoryName);
 		}
 	}
 }

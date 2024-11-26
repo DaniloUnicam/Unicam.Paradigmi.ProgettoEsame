@@ -23,16 +23,19 @@ namespace Unicam.Paradigmi.Web.Controllers
 		[Route("create")]
         public async Task<IActionResult> CreateUser(CreateUserRequest request)
 		{
-			var userValidator = new CreateUserRequestValidator();
-			userValidator.Validate(request);
+			var validateCreatingUser = new CreateUserRequestValidator();
+			validateCreatingUser.Validate(request);
 			var user = request.ToEntity();
 			await _userService.AddUserAsync(user);
 
-			var response = new CreateUserResponse
+			var createUserResponse = new CreateUserResponse
 			{
 				User = new UserDTO(user)
 			};
-			return Ok(ResponseFactory.WithSuccess(response));
+			return Ok(ResponseFactory.WithSuccess(createUserResponse));
 		}
+
+
+
 	}
 }

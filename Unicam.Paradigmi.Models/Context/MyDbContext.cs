@@ -22,11 +22,13 @@ namespace Unicam.Paradigmi.Models.Context
 
 		}
 
-		public DbSet<Book> Books { get; set; }
+		public DbSet<Book> Books { get; set; } = null!;
 
-		public DbSet<User> Users { get; set; }
+		public DbSet<User> Users { get; set; } = null!;
 
-		public DbSet<Category> Categories { get; set; }
+		public DbSet<Category> Categories { get; set; } = null!;
+
+		public DbSet<BookCategory> BookCategories { get; set; } = null!;
 
 		/**
 		 * Il context si occuperà della connessione al database
@@ -34,8 +36,9 @@ namespace Unicam.Paradigmi.Models.Context
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.
-				UseSqlServer("data source=localhost;Initial catalog= paradigmi;User Id=paradigmi;Password=paradigmi;");
+			if(!optionsBuilder.IsConfigured)
+				optionsBuilder.UseSqlServer("Server =localhost; User ID =enterprise; " +
+					"Password =password; Database =enterprise");
 		}
 
 		/**

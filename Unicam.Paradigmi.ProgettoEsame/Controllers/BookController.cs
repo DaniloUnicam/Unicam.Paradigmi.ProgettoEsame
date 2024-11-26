@@ -19,43 +19,27 @@ namespace Unicam.Paradigmi.Web.Controllers
 			_bookService = bookService;
 		}
 
+		
+
 		[HttpPost]
-		[Route("post")]
-		public async Task<IActionResult> UploadBook(UploadBookRequest request)
+		[Route("create")]
+		public async Task<IActionResult> CreateBookAsync(CreateBookRequest request)
 		{
-			var uploadLibroValidator = new UploadBookRequestValidator();
-			uploadLibroValidator.Validate(request);
+			var createLibroValidator = new CreateBookRequestValidator();
+			createLibroValidator.Validate(request);
 			var book = request.ToEntity();
-			await _bookService.UploadBookAsync(book);
+			await _bookService.CreateBookAsync(book, request.CategorieId);
 
-			var response = new UploadBookResponse
+			var response = new CreateBookResponse
 			{
 				Book = new BookDTO()
 			};
 			return Ok(ResponseFactory.WithSuccess(response));
-		}
-
-
-		[HttpDelete]
-		[Route("delete")]
-		public async Task<IActionResult> DeleteBook(DeleteBookRequest request)
-		{
-			var deleteLibroValidator = new DeleteBookRequestValidator();
-			deleteLibroValidator.Validate(request);
-			var book = request.ToEntity();
-			await _bookService.DeleteBookAsync(book);
-			
-			var response = new DeleteBookResponse
-			{
-				Book = new BookDTO()
-			};
-			return Ok(ResponseFactory.WithSuccess(response));
-			
 		}
 
 		[HttpPut]
 		[Route("update")]
-		public async Task<IActionResult> UpdateBook(UpdateBookRequest request)
+		public async Task<IActionResult> UpdateBookAsync(UpdateBookRequest request)
 		{
 			var updateLibroValidator = new UpdateBookRequestValidator();
 			updateLibroValidator.Validate(request);
@@ -69,11 +53,31 @@ namespace Unicam.Paradigmi.Web.Controllers
 			return Ok(ResponseFactory.WithSuccess(response));
 		}
 
+
+		[HttpDelete]
+		[Route("delete")]
+		public async Task<IActionResult> DeleteBookAsync(DeleteBookRequest request)
+		{
+			var deleteLibroValidator = new DeleteBookRequestValidator();
+			deleteLibroValidator.Validate(request);
+			
+			await _bookService.DeleteBookAsync();
+			
+			var response = new DeleteBookResponse
+			{
+				Book = new BookDTO()
+			};
+			return Ok(ResponseFactory.WithSuccess(response));
+			
+		}
+
+		
+
 		[HttpGet]
 		[Route("searchName")]
-		public async Task<IActionResult> SearchBookName(int IdBook)
+		public async Task<IActionResult> SearchBookNameAsync(int IdBook)
 		{
-			var Book = _bookService.GetBook(IdBook).Nome;
+			var Book = _bookService.GetBook(IdBook).Id;
 			return Ok(ResponseFactory.WithSuccess(IdBook));
 		}
 
@@ -81,16 +85,16 @@ namespace Unicam.Paradigmi.Web.Controllers
 		[Route("searchCategory")]
 		public async Task<IActionResult> SearchBookCategory(int IdBook,string category)
 		{
-			var Book = _bookService.GetBook(IdBook);
+			var Book = _bookService.GetBook(IdBook).Id;
 			var BookCategory = _bookService.GetCategory(Book, category);
 			return Ok(ResponseFactory.WithSuccess(category));
 		}
 
 		[HttpGet]
-		[Route("searchAutore")]
+		[Route("/searchAutore")]
 		public async Task<IActionResult> SearchBookAuthor(int IdBook)
 		{
-			var BookAuthor = _bookService.GetBook(IdBook).Autore;
+			var BookAuthor = await _bookService.GetBook(IdBook).Autore;
 			return Ok(ResponseFactory.WithSuccess(BookAuthor));
 		}
 	}

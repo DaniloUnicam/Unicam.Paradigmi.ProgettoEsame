@@ -16,7 +16,7 @@ namespace Unicam.Paradigmi.Application.Models.Dtos
 
         public CategoryDTO(Category category)
         {
-            Nome = category.Nome;
+            Nome = category.BookTitle;
         }
 
         public string Nome { get; set; } = string.Empty;

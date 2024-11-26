@@ -19,7 +19,7 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		{
 			var category = new Category()
 			{
-				Nome = Nome
+				BookTitle = Nome
 			};
 			return category;
 		}

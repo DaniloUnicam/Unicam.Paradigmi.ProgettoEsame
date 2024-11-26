@@ -14,7 +14,7 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		{
 			var book = new Book()
 			{
-				Nome = Nome
+				BookTitle = Nome
 			};
 			return book;
 		}

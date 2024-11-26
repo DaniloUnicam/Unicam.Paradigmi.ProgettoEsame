@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Unicam.Paradigmi.Application.Abstractions.Generics;
 using Unicam.Paradigmi.Models.Context;
 
 namespace Unicam.Paradigmi.Models.Repositories
@@ -18,38 +19,34 @@ namespace Unicam.Paradigmi.Models.Repositories
 			_ctx.Entry(entity).State = EntityState.Modified;
 
 
-		public T GetEntity(T entity) => entity != null ?
-			_ctx.Set<T>().Find(entity) : throw new NullReferenceException("Id sconosciuto");
+		public T GetEntityByName<T>(string entityName) where T : class, INamedEntity
+		{
+			if(string.IsNullOrEmpty(entityName))
+			{
+				throw new KeyNotFoundException("Il nome dell'entità non può essere nullo");
+			}
+			var entity = _ctx.Set<T>().SingleOrDefault(e => e.BookTitle == entityName);
+			return entity ?? throw new KeyNotFoundException($"Entità con nome '{entityName}' non trovata");
+		}
 
-		public T GetEntityById(int idEntity) => _ctx.Set<T>().Find(idEntity);
 
 		public List<T> GetAllEntitiesAsList() => _ctx.Set<T>().ToList();
+
 		public bool ContainsEntity(T entity)
 		{
 			return _ctx.Set<T>().Any(e => e.Equals(entity));
 		}
-		public bool ContainsName(string entity)
-		{
-			return _ctx.Set<T>().Any(e => e.Equals(entity));
-		}
 
-		/***
-		 * Ritorna true se il nome della categoria esiste ed appartiene ad un libro, altrimenti false.
-		 * @param nomeCategoria
-		 */
-		public bool EmptyCategory(string categoryName)
+		
+		public void Delete(T entity)
 		{
-			return _ctx.Books.Any(l => l.Categories.Any(c => c.Nome == categoryName));
-		}
-
-		public void Delete(T id)
-		{
-			var entity = this.GetEntity(id);
 			_ctx.Entry(entity).State = EntityState.Deleted;
 		}
 
-		public void Save() => _ctx.SaveChanges();
-
+		public async Task SaveChangesAsync()
+		{
+			await _ctx.SaveChangesAsync();
+		}
 
 	}
 }

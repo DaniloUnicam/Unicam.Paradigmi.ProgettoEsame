@@ -9,13 +9,13 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 {
 	public class CreateCategoryRequest
 	{
-		public string Nome { get; set; } = string.Empty;
+		public string Name { get; set; } = string.Empty;
 
 		public Category ToEntity()
 		{
 			var category = new Category
 			{
-				Nome = Nome
+				BookTitle = Name
 			};
 			return category;
 		}

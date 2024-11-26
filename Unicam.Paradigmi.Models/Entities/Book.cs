@@ -1,29 +1,30 @@
 ﻿using System.Collections.ObjectModel;
+using Unicam.Paradigmi.Application.Abstractions.Generics;
 
 namespace Unicam.Paradigmi.Models.Entities
 {
 
-	public class Book
+	public class Book : INamedEntity
 	{
 		public Book()
 		{
-			Nome = string.Empty;
-			Autore = string.Empty;
-			DataDiPubblicazione = new DateTime();
-			Editore = string.Empty;
-			Categories = new Collection<Category>();
+			BookTitle = string.Empty;
+			Author = string.Empty;
+			PublishDate = new DateTime();
+			Editor = string.Empty;
+			Categories = new List<BookCategory>();
 		}
 
-		public int IdLibro { get; set; }
+		public int IdBook { get; set; }
 
-		public string Nome { get; set; }
+		public string BookTitle { get; set; }
 
-		public string Autore { get; set; }
+		public string Author { get; set; }
 
-		public DateTime DataDiPubblicazione { get; set; }
+		public DateTime PublishDate { get; set; }
 
-		public string Editore { get; set; }
+		public string Editor { get; set; }
 
-		public ICollection<Category> Categories { get; set; }
+		public List<BookCategory> Categories { get; set; }
 	}
 }

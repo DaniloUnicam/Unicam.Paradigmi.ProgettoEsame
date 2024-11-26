@@ -7,7 +7,7 @@ using Unicam.Paradigmi.Models.Entities;
 
 namespace Unicam.Paradigmi.Application.Models.Requests
 {
-	public class UploadBookRequest
+	public class CreateBookRequest
 	{
 		public string Nome { get; set; } = string.Empty;
 
@@ -16,16 +16,16 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		public DateTime DataDiPubblicazione { get; set; } = new DateTime();
 
 		public string Editore { get; set; } = string.Empty;
-		public ICollection<Category> Categorie { get; set; } = new List<Category>();
+		public ICollection<int> CategorieId { get; set; } = new List<int>();
 
 		public Book ToEntity()
 		{
 			var book = new Book
 			{
-				Nome = Nome,
-				Autore = Autore,
-				DataDiPubblicazione = DataDiPubblicazione,
-				Editore = Editore,
+				BookTitle = Nome,
+				Author = Autore,
+				PublishDate = DataDiPubblicazione,
+				Editor = Editore,
 				Categories = Categorie
 			};
 			return book;

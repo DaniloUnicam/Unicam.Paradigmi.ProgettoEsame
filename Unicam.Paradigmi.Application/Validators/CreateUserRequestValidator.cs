@@ -13,13 +13,13 @@ namespace Unicam.Paradigmi.Application.Validators
 	{
         public CreateUserRequestValidator()
         {
-            RuleFor(n => n.Nome)
+            RuleFor(n => n.Name)
                 .NotEmpty()
                 .WithMessage("Il campo Nome non può essere vuoto")
                 .NotNull()
                 .WithMessage("Il campo Nome non può essere nullo");
 
-            RuleFor(c => c.Cognome)
+            RuleFor(c => c.Surname)
 				.NotEmpty()
 				.WithMessage("Il campo Cognome non può essere vuoto")
 				.NotNull()

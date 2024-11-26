@@ -14,7 +14,7 @@ namespace Unicam.Paradigmi.Models.Configurations
 		public void Configure(EntityTypeBuilder<Book> builder)
 		{
 			builder.ToTable("Book");
-			builder.HasKey(id => id.IdLibro).HasName("id");
+			builder.HasKey(id => id.IdBook).HasName("id");
 		}
 	}
 }

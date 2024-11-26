@@ -23,10 +23,10 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		{
 			var book = new Book
 			{
-				Nome = Nome,
-				Autore = Autore,
-				DataDiPubblicazione = DataDiPubblicazione,
-				Editore = Editore,
+				BookTitle = Nome,
+				Author = Autore,
+				PublishDate = DataDiPubblicazione,
+				Editor = Editore,
 				Categories = Categorie
 			};
 			return book;

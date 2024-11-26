@@ -8,7 +8,7 @@ using Unicam.Paradigmi.Models.Entities;
 
 namespace Unicam.Paradigmi.Application.Models.Responses
 {
-	public class UploadBookResponse
+	public class CreateBookResponse
 	{
 		public BookDTO Book { get; set; } = null!;
 	}
