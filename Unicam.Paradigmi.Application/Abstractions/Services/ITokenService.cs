@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Unicam.Paradigmi.Application.Abstractions.Services
+﻿namespace Unicam.Paradigmi.Application.Abstractions.Services
 {
-	public class ITokenService
+	public interface ITokenService
 	{
+		public Task<string> CreateTokenAsync(string email, string password);
 
 	}
 }
