@@ -22,7 +22,7 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		{
 			var book = new Book
 			{
-				CategoryName = BookTitle,
+				Title = BookTitle,
 				Author = Author,
 				PublishDate = PublicationDate,
 				Editor = Editor

@@ -13,16 +13,16 @@ namespace Unicam.Paradigmi.Application.Models.Dtos
 
         public UserDTO(User user)
         {
-            Id = user.IdUtente;
-            Nome = user.Nome;
-            Cognome = user.Cognome;
+			UserID = user.UserId;
+			Username = user.Username;
+			Surname = user.Surname;
 			Email = user.Email;
 			Password = user.Password;
 		}
 
-        public int Id { get; set; }
-		public string Nome { get; set; } = string.Empty;
-		public string Cognome { get; set; } = string.Empty;
+        public int UserID { get; set; }
+		public string Username { get; set; } = string.Empty;
+		public string Surname { get; set; } = string.Empty;
 		public string Email { get; set; } = string.Empty;
 		public string Password { get; set; } = string.Empty;
 	}

@@ -1,14 +1,13 @@
 ﻿using System.Collections.ObjectModel;
-using Unicam.Paradigmi.Application.Abstractions.Generics;
 
 namespace Unicam.Paradigmi.Models.Entities
 {
 
-	public class Book : INamedEntity
+	public class Book
 	{
 		public Book()
 		{
-			CategoryName = string.Empty;
+			Title = string.Empty;
 			Author = string.Empty;
 			PublishDate = new DateTime();
 			Editor = string.Empty;
@@ -17,7 +16,7 @@ namespace Unicam.Paradigmi.Models.Entities
 
 		public int IdBook { get; set; }
 
-		public string CategoryName { get; set; }
+		public string Title { get; set; }
 
 		public string Author { get; set; }
 

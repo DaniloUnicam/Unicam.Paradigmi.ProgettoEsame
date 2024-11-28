@@ -13,6 +13,5 @@ namespace Unicam.Paradigmi.Application.Abstractions.Services
 
 		Task<bool> DeleteCategoryAsync(int IdCategory);
 
-		Task<bool> CategoryExists(string categoryName);
 	}
 }

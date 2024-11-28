@@ -16,12 +16,14 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 
 		public BookDTO ToDto()
 		{
-			var bookDto = new BookDTO();
-			bookDto.IdBook = Id;
-			bookDto.BookTitle = BookTitle;
-			bookDto.Author = Author;
-			bookDto.PublicationDate = PublicationDate;
-			bookDto.Editor = Editor;
+			var bookDto = new BookDTO
+			{
+				IdBook = Id,
+				BookTitle = BookTitle,
+				Author = Author,
+				PublicationDate = PublicationDate,
+				Editor = Editor
+			};
 			return bookDto;
 		}
 
@@ -29,7 +31,7 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		{
 			var book = new Book();
 			book.IdBook = Id;
-			if (BookTitle != null) book.CategoryName = BookTitle;
+			if (BookTitle != null) book.Title = BookTitle;
 
 			if (Author != null) book.Author = Author;
 

@@ -14,7 +14,7 @@ namespace Unicam.Paradigmi.Models.Configurations
 		public void Configure(EntityTypeBuilder<User> builder)
 		{
 			builder.ToTable("User");
-			builder.HasKey(p => p.IdUtente).HasName("p");
+			builder.HasKey(p => p.IdUtente).HasName("UserId");
 		}
 	}
 }

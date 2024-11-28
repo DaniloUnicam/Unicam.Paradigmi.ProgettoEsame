@@ -15,7 +15,7 @@ namespace Unicam.Paradigmi.Application.Factories
 			return new BookDTO
 			{
 				IdBook = book.IdBook,
-				BookTitle = book.CategoryName,
+				BookTitle = book.Title,
 				Author = book.Author,
 				Editor = book.Editor,
 				PublicationDate = book.PublishDate,

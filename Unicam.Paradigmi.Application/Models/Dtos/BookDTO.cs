@@ -15,7 +15,7 @@ namespace Unicam.Paradigmi.Application.Models.Dtos
 		public BookDTO(Book book)
         {
 			IdBook = book.IdBook;
-			BookTitle = book.CategoryName;
+			BookTitle = book.Title;
 			Author = book.Author;
 			PublicationDate = book.PublishDate;
 			Editor = book.Editor;

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Unicam.Paradigmi.Application.Models.Dtos;
-using Unicam.Paradigmi.Models.Entities;
 
 namespace Unicam.Paradigmi.Application.Models.Responses
 {
-	public class CreateBookResponse : BookDTOResponse
+	public class BookDTOResponse
 	{
+		public BookDTO? BookDTO { get; set; }
 	}
 }

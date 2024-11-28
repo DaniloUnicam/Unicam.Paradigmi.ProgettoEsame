@@ -11,13 +11,13 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		public string Password { get; set; } = string.Empty;
 
 
-		public User ToEntity()
+		public virtual User ToEntity()
 		{
 			var user = new User
 			{
+				Username = Name,
+				Surname = Surname,
 				Email = Email,
-				Nome = Name,
-				Cognome = Surname,
 				Password = Password
 			};
 			return user;

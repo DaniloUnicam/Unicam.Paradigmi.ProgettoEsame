@@ -7,8 +7,8 @@ using Unicam.Paradigmi.Application.Models.Dtos;
 
 namespace Unicam.Paradigmi.Application.Models.Responses
 {
-	public class DeleteCategoryResponse
+	public class DeleteCategoryResponse : ResultResponse
 	{
-		public bool Result { get; set; }
+
 	}
 }
