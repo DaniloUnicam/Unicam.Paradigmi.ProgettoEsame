@@ -7,17 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Middlewares\" />
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Unicam.Paradigmi.Models.csproj" />
-    <ProjectReference Include="..\Unicam.Paradigmi.Models\Unicam.Paradigmi.Models.csproj" />
+    <ProjectReference Include="..\Unicam.Paradigmi.Models\Unicam.Paradigmi.ProjectModels.csproj" />
   </ItemGroup>
 
 </Project>

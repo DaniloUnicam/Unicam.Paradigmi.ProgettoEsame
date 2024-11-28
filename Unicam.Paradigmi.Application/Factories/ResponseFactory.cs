@@ -9,7 +9,7 @@ namespace Unicam.Paradigmi.Application.Factories
 {
 	public class ResponseFactory
 	{
-		public virtual static BaseResponse<T> WithSuccess<T>(T result)
+		public static BaseResponse<T> WithSuccess<T>(T result)
 		{
 			var response = new BaseResponse<T>
 			{

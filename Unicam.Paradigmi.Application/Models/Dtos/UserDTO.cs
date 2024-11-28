@@ -14,8 +14,8 @@ namespace Unicam.Paradigmi.Application.Models.Dtos
         public UserDTO(User user)
         {
             Id = user.IdUtente;
-            Nome = user.Nome;
-            Cognome = user.Cognome;
+            Nome = user.Name;
+            Cognome = user.Surname;
 			Email = user.Email;
 			Password = user.Password;
 		}

@@ -788,7 +788,7 @@
           }
         }
       },
-      "Unicam.Paradigmi.Models/1.0.0": {
+      "Unicam.Paradigmi.ProjectModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -797,10 +797,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.25"
         },
         "compile": {
-          "bin/placeholder/Unicam.Paradigmi.Models.dll": {}
+          "bin/placeholder/Unicam.Paradigmi.ProjectModels.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Unicam.Paradigmi.Models.dll": {}
+          "bin/placeholder/Unicam.Paradigmi.ProjectModels.dll": {}
         }
       }
     }
@@ -2027,16 +2027,16 @@
         "version.txt"
       ]
     },
-    "Unicam.Paradigmi.Models/1.0.0": {
+    "Unicam.Paradigmi.ProjectModels/1.0.0": {
       "type": "project",
-      "path": "../Models/Unicam.Paradigmi.Models.csproj",
-      "msbuildProject": "../Models/Unicam.Paradigmi.Models.csproj"
+      "path": "../Unicam.Paradigmi.Models/Unicam.Paradigmi.ProjectModels.csproj",
+      "msbuildProject": "../Unicam.Paradigmi.Models/Unicam.Paradigmi.ProjectModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "FluentValidation.AspNetCore >= 11.3.0",
-      "Unicam.Paradigmi.Models >= 1.0.0"
+      "Unicam.Paradigmi.ProjectModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2067,11 +2067,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Models\\Unicam.Paradigmi.Models.csproj": {
-              "projectPath": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Models\\Unicam.Paradigmi.Models.csproj"
-            },
-            "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.Models.csproj": {
-              "projectPath": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.Models.csproj"
+            "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.ProjectModels.csproj": {
+              "projectPath": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.ProjectModels.csproj"
             }
           }
         }

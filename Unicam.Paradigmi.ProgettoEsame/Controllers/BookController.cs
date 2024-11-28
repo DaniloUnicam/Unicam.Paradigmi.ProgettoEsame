@@ -5,7 +5,6 @@ using Unicam.Paradigmi.Application.Models.Dtos;
 using Unicam.Paradigmi.Application.Models.Requests;
 using Unicam.Paradigmi.Application.Models.Responses;
 using Unicam.Paradigmi.Application.Validators;
-using Unicam.Paradigmi.Models.Entities;
 namespace Unicam.Paradigmi.Web.Controllers
 {
 	[ApiController]
@@ -19,7 +18,7 @@ namespace Unicam.Paradigmi.Web.Controllers
 			_bookService = bookService;
 		}
 
-		
+
 
 		[HttpPost]
 		[Route("create")]
@@ -49,7 +48,7 @@ namespace Unicam.Paradigmi.Web.Controllers
 			var book = request.ToDto();
 
 			var result = await _bookService.UpdateBookAsync(book, request.CategoryIds);
-			
+
 			var updateBookResponse = new UpdateBookResponse
 			{
 				Book = new BookDTO()
@@ -64,7 +63,7 @@ namespace Unicam.Paradigmi.Web.Controllers
 		{
 			var deleteBookValidator = new DeleteBookRequestValidator();
 			deleteBookValidator.Validate(request);
-			
+
 			var result = await _bookService.DeleteBookAsync(request.IdBook);
 
 			var deleteBookResponse = new DeleteBookResponse
@@ -72,12 +71,12 @@ namespace Unicam.Paradigmi.Web.Controllers
 				Result = result
 			};
 			return Ok(ResponseFactory.WithSuccess(deleteBookResponse));
-			
+
 		}
 
 
 
-		[HttpPost]
+		[HttpGet]
 		[Route("get")]
 		public async Task<IActionResult> GetBookAsync(GetBookRequest request)
 		{

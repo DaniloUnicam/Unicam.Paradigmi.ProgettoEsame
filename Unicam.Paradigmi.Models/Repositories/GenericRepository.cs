@@ -19,15 +19,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 			_ctx.Entry(entity).State = EntityState.Modified;
 
 
-		public T GetEntityByName<T>(string entityName) where T : class, INamedEntity
-		{
-			if(string.IsNullOrEmpty(entityName))
-			{
-				throw new KeyNotFoundException("Il nome dell'entità non può essere nullo");
-			}
-			var entity = _ctx.Set<T>().SingleOrDefault(e => e.CategoryName == entityName);
-			return entity ?? throw new KeyNotFoundException($"Entità con nome '{entityName}' non trovata");
-		}
+	
 
 
 		public List<T> GetAllEntitiesAsList() => _ctx.Set<T>().ToList();

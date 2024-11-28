@@ -16,8 +16,8 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 			var user = new User
 			{
 				Email = Email,
-				Nome = Name,
-				Cognome = Surname,
+				Name = Name,
+				Surname = Surname,
 				Password = Password
 			};
 			return user;

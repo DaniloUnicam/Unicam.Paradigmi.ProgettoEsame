@@ -1917,9 +1917,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.Models.csproj",
-      "projectName": "Unicam.Paradigmi.Models",
-      "projectPath": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.Models.csproj",
+      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.ProjectModels.csproj",
+      "projectName": "Unicam.Paradigmi.ProjectModels",
+      "projectPath": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\Unicam.Paradigmi.ProjectModels.csproj",
       "packagesPath": "C:\\Users\\Utente\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Utente\\Desktop\\Università\\3\\Paradigmi Avanzati\\Enterprise\\Unicam.Paradigmi.ProgettoEsame\\Unicam.Paradigmi.Models\\obj\\",
       "projectStyle": "PackageReference",

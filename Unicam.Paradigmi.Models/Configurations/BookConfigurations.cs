@@ -15,6 +15,16 @@ namespace Unicam.Paradigmi.Models.Configurations
 		{
 			builder.ToTable("Book");
 			builder.HasKey(id => id.IdBook).HasName("id");
+			builder.Property(b => b.BookName)
+			.IsRequired()
+			.HasMaxLength(255);
+
+			builder.Property(b => b.Author)
+				.IsRequired()
+				.HasMaxLength(255);
+
+			builder.Property(b => b.Editor)
+				.HasMaxLength(255);
 		}
 	}
 }

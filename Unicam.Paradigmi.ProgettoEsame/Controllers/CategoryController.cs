@@ -18,7 +18,7 @@ namespace Unicam.Paradigmi.Web.Controllers
 			this._categoryService = categoryService;
 		}
 
-		[HttpGet]
+		[HttpPost]
 		[Route("create")]
 		public async Task<IActionResult> CreateCategoryAsync(CreateCategoryRequest request)
 		{
@@ -34,7 +34,7 @@ namespace Unicam.Paradigmi.Web.Controllers
 				CategoryDTO = new CategoryDTO
 				{
 					IdCategory = category.IdCategory,
-					BookTitle = category.CategoryName,
+					CategoryName = category.CategoryName,
 				}
 			};
 

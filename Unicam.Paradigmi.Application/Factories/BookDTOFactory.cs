@@ -15,7 +15,7 @@ namespace Unicam.Paradigmi.Application.Factories
 			return new BookDTO
 			{
 				IdBook = book.IdBook,
-				BookTitle = book.CategoryName,
+				BookTitle = book.BookName,
 				Author = book.Author,
 				Editor = book.Editor,
 				PublicationDate = book.PublishDate,
@@ -28,7 +28,7 @@ namespace Unicam.Paradigmi.Application.Factories
 			return new CategoryDTO
 			{
 				IdCategory = bookCategory.CategoryId,
-				BookTitle = bookCategory.Category?.CategoryName!
+				CategoryName = bookCategory.Category?.CategoryName!
 			};
 		}
 	}

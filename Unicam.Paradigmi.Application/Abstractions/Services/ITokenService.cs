@@ -2,7 +2,7 @@
 {
 	public interface ITokenService
 	{
-		public Task<string> CreateTokenAsync(string email, string password);
+		Task<string> CreateTokenStringAsync(string email, string password);
 
 	}
 }

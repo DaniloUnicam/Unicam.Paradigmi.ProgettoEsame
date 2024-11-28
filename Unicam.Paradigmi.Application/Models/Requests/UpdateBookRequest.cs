@@ -29,7 +29,7 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		{
 			var book = new Book();
 			book.IdBook = Id;
-			if (BookTitle != null) book.CategoryName = BookTitle;
+			if (BookTitle != null) book.BookName = BookTitle;
 
 			if (Author != null) book.Author = Author;
 

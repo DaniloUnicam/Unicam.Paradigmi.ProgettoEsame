@@ -16,11 +16,11 @@ namespace Unicam.Paradigmi.Application.Models.Dtos
 
         public CategoryDTO(Category category)
         {
-            BookTitle = category.CategoryName;
+            CategoryName = category.CategoryName;
             IdCategory = category.IdCategory;
         }
 
-        public string BookTitle { get; set; } = string.Empty;
+        public string CategoryName { get; set; } = string.Empty;
 
         public int IdCategory { get; set; }
 

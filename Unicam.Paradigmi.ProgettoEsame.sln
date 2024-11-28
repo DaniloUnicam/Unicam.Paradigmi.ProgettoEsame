@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.Web", "Uni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.Application", "Unicam.Paradigmi.Application\Unicam.Paradigmi.Application.csproj", "{A9003F44-4739-4DA4-91FA-9D461C16B68B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.Models", "Unicam.Paradigmi.Models\Unicam.Paradigmi.Models.csproj", "{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unicam.Paradigmi.ProjectModels", "Unicam.Paradigmi.Models\Unicam.Paradigmi.ProjectModels.csproj", "{B64B0490-3A52-4AF3-9BE6-A531B90D6B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

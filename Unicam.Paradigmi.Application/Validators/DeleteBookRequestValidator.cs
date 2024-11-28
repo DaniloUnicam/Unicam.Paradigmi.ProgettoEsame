@@ -9,7 +9,7 @@ namespace Unicam.Paradigmi.Application.Validators
 
 		public DeleteBookRequestValidator()
 		{
-			RuleFor(n => n.Name)
+			RuleFor(n => n.IdBook)
 				.NotEmpty()
 				.WithMessage("Il campo Nome non può essere vuoto")
 				.NotNull()

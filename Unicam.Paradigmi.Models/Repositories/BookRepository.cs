@@ -17,7 +17,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 			}
 			else
 			{
-				return query.Where(n => n.CategoryName.Contains(bookName));
+				return query.Where(n => n.BookName.Contains(bookName));
 			}
 		}
 
@@ -56,7 +56,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 			query = FilterByAuthor(query, author);
 
 
-			return await query.OrderBy(q => q.CategoryName)
+			return await query.OrderBy(q => q.BookName)
 				.Skip(page * pageSize)
 				.Take(pageSize)
 				.ToListAsync();

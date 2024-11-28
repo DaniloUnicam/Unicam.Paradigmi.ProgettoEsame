@@ -21,7 +21,7 @@ namespace Unicam.Paradigmi.Web.Controllers
             this._userService = userService;
         }
 
-		[HttpGet]
+		[HttpPost]
 		[Route("create")]
         public async Task<IActionResult> CreateUserAsync(CreateUserRequest request)
 		{
