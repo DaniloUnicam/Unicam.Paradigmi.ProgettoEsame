@@ -48,10 +48,5 @@ namespace Unicam.Paradigmi.Application.Services
 		{
 			return await _categoryRepository.GetCategoryByIdAsync(id);
 		}
-
-		public async Task<bool> CategoryExists(string categoryName)
-		{
-			return await _categoryRepository.CategoryExists(categoryName);
-		}
 	}
 }

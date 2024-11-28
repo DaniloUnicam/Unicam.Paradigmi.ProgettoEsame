@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unicam.Paradigmi.Application.Extensions;
 using Unicam.Paradigmi.Application.Models.Requests;
+using Unicam.Paradigmi.Bookshop.Application.Extensions;
 
 namespace Unicam.Paradigmi.Application.Validators
 {
@@ -13,38 +14,22 @@ namespace Unicam.Paradigmi.Application.Validators
 	{
         public CreateUserRequestValidator()
         {
-            RuleFor(n => n.Name)
-                .NotEmpty()
-                .WithMessage("Il campo Nome non può essere vuoto")
-                .NotNull()
-                .WithMessage("Il campo Nome non può essere nullo");
-
-            RuleFor(c => c.Surname)
-				.NotEmpty()
-				.WithMessage("Il campo Cognome non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Cognome non può essere nullo");
-
-            RuleFor(e => e.Email)
-				.NotEmpty()
-				.WithMessage("Il campo Email non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Email non può essere nullo")
-				.MinimumLength(4)
-				.EmailAddress()
-				.WithMessage("Il campo Email deve contenere un indirizzo email valido");
-
-			RuleFor(p => p.Password)
-				.NotEmpty()
-				.WithMessage("Il campo Password non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Password non può essere nullo")
-				.MinimumLength(8)
-				.WithMessage("Il campo Password deve essere lungo almeno 8 caratteri")
-				.RegEx("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\W).{6,}$\r\n",
-				"Il campo password deve essere lungo almeno 6 caratteri," +
-				" deve contenere un carattere maiuscolo, " +
-				"un carattere minuscolo e un carattere speciale");
+			RuleFor(u => u.Password)
+			.NotNull().WithMessage("Password's field can't be null")
+			.NotEmpty().WithMessage("Password's field can't be empty")
+			.MinimumLength(6)
+			.RegEx("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\W).{6,}$\r\n",
+				"The password field must:" +
+				"1) be at least 6 characters long" +
+				"2) contain an upper case character" +
+				"3) contain a lower case character" +
+				"4) contain a special character"); ;
+			RuleFor(u => u.Email)
+				.ValidateEmail();
+			RuleFor(u => u.Name)
+				.NotEmpty().WithMessage("Name field can't be empty");
+			RuleFor(u => u.Surname)
+				.NotEmpty().WithMessage("Surname field can't be empty");
 		}
 
     }
