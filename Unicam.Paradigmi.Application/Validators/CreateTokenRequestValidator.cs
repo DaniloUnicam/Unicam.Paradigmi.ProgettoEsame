@@ -10,7 +10,8 @@ namespace Unicam.Paradigmi.Application.Validators
         {
 
 			RuleFor(u => u.Password)
-				.NotEmpty().WithMessage("password field can't be left empty");
+				.NotEmpty().WithMessage("Password field can't be left empty")
+				.NotNull().WithMessage("Password field can't be inexistent");
 			RuleFor(u => u.Email)
 				.ValidateEmail();
 		}

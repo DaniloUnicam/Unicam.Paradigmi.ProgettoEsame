@@ -14,33 +14,25 @@ namespace Unicam.Paradigmi.Application.Validators
         public CreateUserRequestValidator()
         {
             RuleFor(n => n.Name)
-                .NotEmpty()
-                .WithMessage("Il campo Nome non può essere vuoto")
-                .NotNull()
-                .WithMessage("Il campo Nome non può essere nullo");
+				.NotEmpty().WithMessage("Name field can't be left empty")
+				.NotNull().WithMessage("Name field can't be inexistent");
 
-            RuleFor(c => c.Surname)
-				.NotEmpty()
-				.WithMessage("Il campo Cognome non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Cognome non può essere nullo");
+			RuleFor(c => c.Surname)
+				.NotEmpty().WithMessage("Surname field can't be left empty")
+				.NotNull().WithMessage("Password field can't be inexistent");
 
-            RuleFor(e => e.Email)
-				.NotEmpty()
-				.WithMessage("Il campo Email non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Email non può essere nullo")
-				.MinimumLength(4)
-				.EmailAddress()
-				.WithMessage("Il campo Email deve contenere un indirizzo email valido");
+			RuleFor(e => e.Email)
+				.NotEmpty().WithMessage("Email field can't be left empty")
+				.NotNull().WithMessage("Email field can't be inexistent")
+				//RFC 5321, RFC 5322
+				.MinimumLength(6).WithMessage("Email field must be at least 6 characters long")
+				.EmailAddress().WithMessage("Email field must contain a valid Email address," +
+				" having also at maxinum one of this character '@'.");
 
 			RuleFor(p => p.Password)
-				.NotEmpty()
-				.WithMessage("Il campo Password non può essere vuoto")
-				.NotNull()
-				.WithMessage("Il campo Password non può essere nullo")
-				.MinimumLength(8)
-				.WithMessage("Il campo Password deve essere lungo almeno 8 caratteri")
+				.NotEmpty().WithMessage("Password field can't be left empty")
+				.NotNull().WithMessage("Password field can't be left empty")
+				.MinimumLength(8).WithMessage("Il campo Password deve essere lungo almeno 8 caratteri")
 				.RegEx("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\W).{6,}$\r\n",
 				"Il campo password deve essere lungo almeno 6 caratteri," +
 				" deve contenere un carattere maiuscolo, " +

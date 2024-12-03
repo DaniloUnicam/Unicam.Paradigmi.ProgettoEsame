@@ -11,7 +11,6 @@ namespace Unicam.Paradigmi.Application.Validators
         {
 			RuleFor(n => n.IdCategory)
 				.GreaterThanOrEqualTo(0).WithMessage("Illegal Id format");
-
 		}
     }
 }

@@ -12,7 +12,7 @@ namespace Unicam.Paradigmi.Application.Validators
 				.NotEmpty()
 				.WithMessage("Category's field can't be empty")
 				.NotEmpty()
-				.WithMessage("Category's field can't be null");
+				.WithMessage("Category's field can't be inexistent");
 		}
 
 	}

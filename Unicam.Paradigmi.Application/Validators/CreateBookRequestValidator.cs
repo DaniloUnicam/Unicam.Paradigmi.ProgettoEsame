@@ -12,19 +12,19 @@ namespace Unicam.Paradigmi.Application.Validators
 				.NotEmpty()
 				.WithMessage("Book's title field can't be empty")
 				.NotNull()
-				.WithMessage("Book's title field can't be null");
+				.WithMessage("Book's title field can't be inexistent");
 
 			RuleFor(a => a.Author)
 				.NotEmpty()
 				.WithMessage("Author field can't be empty")
 				.NotNull()
-				.WithMessage("Author field can't be null");
+				.WithMessage("Author field can't be inexistent");
 
 			RuleFor(d => d.PublicationDate)
 				.NotEmpty()
 				.WithMessage("PublicationDate field can't be empty")
 				.NotNull()
-				.WithMessage("PublicationDate field can't be null")
+				.WithMessage("PublicationDate field can't be inexistent")
 				.LessThanOrEqualTo(DateTime.Now)
 				.WithMessage("PublicationDate field can't be from a future date");
 
@@ -32,7 +32,7 @@ namespace Unicam.Paradigmi.Application.Validators
 				.NotEmpty()
 				.WithMessage("Editor field can't be empty")
 				.NotNull()
-				.WithMessage("Editor field can't be null");
+				.WithMessage("Editor field can't be inexistent");
 
 
 
