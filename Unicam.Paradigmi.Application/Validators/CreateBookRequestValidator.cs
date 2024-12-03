@@ -34,6 +34,8 @@ namespace Unicam.Paradigmi.Application.Validators
 				.NotNull()
 				.WithMessage("Editor field can't be null");
 
+
+
 			RuleFor(i => i.CategoriesId)
 				.ValidateCollection(v => v >= 0, "Invalid category Id format");
 		}
