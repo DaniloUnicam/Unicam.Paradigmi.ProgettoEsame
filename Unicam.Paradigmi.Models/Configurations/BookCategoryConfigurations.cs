@@ -15,6 +15,7 @@ namespace Unicam.Paradigmi.Models.Configurations
 		{
 			builder.ToTable("BookCategories")
 				.HasKey(r => new { r.BookId, r.CategoryId });
+
 			builder.HasOne(r => r.Book)
 			.WithMany(b => b.Categories)
 			.HasForeignKey(r => r.BookId)

@@ -13,24 +13,24 @@ namespace Unicam.Paradigmi.Models.Configurations
 	{
 		public void Configure(EntityTypeBuilder<User> builder)
 		{
-			builder.ToTable("User");
-			builder.HasKey(p => p.IdUtente).HasName("UserId");
+			builder.ToTable("Users")
+				.HasKey(p => p.UserId);
 
 			builder.Property(u => u.Name)
-			.IsRequired()
-			.HasMaxLength(30);
+				.IsRequired()
+				.HasMaxLength(11);
 
 			builder.Property(u => u.Surname)
 				.IsRequired()
-				.HasMaxLength(30);
+				.HasMaxLength(11);
 
 			builder.Property(u => u.Email)
 				.IsRequired()
-				.HasMaxLength(100);
+				.HasMaxLength(11);
 
 			builder.Property(u => u.Password)
 				.IsRequired()
-				.HasMaxLength(100);
+				.HasMaxLength(11);
 
 		}
 	}

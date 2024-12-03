@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Unicam.Paradigmi.Application.Abstractions.Services;
 using Unicam.Paradigmi.Application.Factories;
 using Unicam.Paradigmi.Application.Models.Requests;
@@ -7,6 +8,7 @@ using Unicam.Paradigmi.Application.Validators;
 namespace Unicam.Paradigmi.Web.Controllers
 {
 	[ApiController]
+	[AllowAnonymous]
 	[Route("api/v1/[controller]")]
 	public class TokenController : ControllerBase
 	{

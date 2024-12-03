@@ -13,18 +13,19 @@ namespace Unicam.Paradigmi.Models.Configurations
 	{
 		public void Configure(EntityTypeBuilder<Book> builder)
 		{
-			builder.ToTable("Book");
-			builder.HasKey(id => id.IdBook).HasName("id");
+			builder.ToTable("Books");
+			builder.HasKey(id => id.IdBook);
+
 			builder.Property(b => b.BookName)
-			.IsRequired()
-			.HasMaxLength(255);
+				.IsRequired()
+				.HasMaxLength(11);
 
 			builder.Property(b => b.Author)
 				.IsRequired()
-				.HasMaxLength(255);
+				.HasMaxLength(11);
 
 			builder.Property(b => b.Editor)
-				.HasMaxLength(255);
+				.HasMaxLength(11);
 		}
 	}
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using Unicam.Paradigmi.Application.Abstractions.Generics;
-
-namespace Unicam.Paradigmi.Models.Entities
+﻿namespace Unicam.Paradigmi.Models.Entities
 {
 
 	public class Book

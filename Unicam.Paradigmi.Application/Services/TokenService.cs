@@ -40,7 +40,7 @@ namespace Unicam.Paradigmi.Application.Services
 			var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 			var claims = new List<Claim>
 			{
-			new("user_id", user.IdUtente.ToString()),
+			new("user_id", user.UserId.ToString()),
 			new("Name", user.Name),
 			new("Surname", user.Surname),
 			new("Email", user.Email)

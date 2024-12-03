@@ -1,10 +1,8 @@
-﻿using Unicam.Paradigmi.Application.Abstractions.Generics;
-
-namespace Unicam.Paradigmi.Models.Entities
+﻿namespace Unicam.Paradigmi.Models.Entities
 {
-	public class Category : INamedEntity
+	public class Category
 	{
-        public string CategoryName { get; set; } = string.Empty;
+		public string CategoryName { get; set; } = string.Empty;
 
 		public int IdCategory { get; set; }
 

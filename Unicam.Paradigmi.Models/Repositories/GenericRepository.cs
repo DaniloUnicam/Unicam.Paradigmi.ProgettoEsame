@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Unicam.Paradigmi.Application.Abstractions.Generics;
 using Unicam.Paradigmi.Models.Context;
 
 namespace Unicam.Paradigmi.Models.Repositories
@@ -19,7 +18,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 			_ctx.Entry(entity).State = EntityState.Modified;
 
 
-	
+
 
 
 		public List<T> GetAllEntitiesAsList() => _ctx.Set<T>().ToList();
@@ -29,7 +28,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 			return _ctx.Set<T>().Any(e => e.Equals(entity));
 		}
 
-		
+
 		public void Delete(T entity)
 		{
 			_ctx.Entry(entity).State = EntityState.Deleted;

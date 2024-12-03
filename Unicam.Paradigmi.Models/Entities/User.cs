@@ -10,7 +10,7 @@
 			Password = string.Empty;
 		}
 
-		public int IdUtente { get; set; }
+		public int UserId { get; set; }
 		public string Name { get; set; }
 		public string Surname { get; set; }
 		public string Email { get; set; }

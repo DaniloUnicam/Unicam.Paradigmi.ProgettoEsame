@@ -13,8 +13,12 @@ namespace Unicam.Paradigmi.Models.Configurations
 	{
 		public void Configure(EntityTypeBuilder<Category> builder)
 		{
-			builder.ToTable("Category");
-			builder.HasKey(id => id.IdCategory).HasName("CategoryId");
+			builder.ToTable("Categories")
+				.HasKey(id => id.IdCategory);
+
+			builder.Property(n => n.CategoryName)
+				.HasMaxLength(11)
+				.IsRequired();
 		}
 	}
 }
