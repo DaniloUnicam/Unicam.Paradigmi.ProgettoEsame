@@ -9,32 +9,18 @@ namespace Unicam.Paradigmi.Application.Validators
 		public CreateBookRequestValidator()
 		{
 			RuleFor(n => n.BookTitle)
-				.NotEmpty()
-				.WithMessage("Book's title field can't be empty")
-				.NotNull()
-				.WithMessage("Book's title field can't be inexistent");
+				.NotNullOrEmpty("BookTitle");
 
 			RuleFor(a => a.Author)
-				.NotEmpty()
-				.WithMessage("Author field can't be empty")
-				.NotNull()
-				.WithMessage("Author field can't be inexistent");
+				.NotNullOrEmpty("Author");
 
 			RuleFor(d => d.PublicationDate)
-				.NotEmpty()
-				.WithMessage("PublicationDate field can't be empty")
-				.NotNull()
-				.WithMessage("PublicationDate field can't be inexistent")
+				.NotNullOrEmpty("PublicationDate")
 				.LessThanOrEqualTo(DateTime.Now)
 				.WithMessage("PublicationDate field can't be from a future date");
 
 			RuleFor(e => e.Editor)
-				.NotEmpty()
-				.WithMessage("Editor field can't be empty")
-				.NotNull()
-				.WithMessage("Editor field can't be inexistent");
-
-
+				.NotNullOrEmpty("Editor");
 
 			RuleFor(i => i.CategoriesId)
 				.ValidateCollection(v => v >= 0, "Invalid category Id format");

@@ -13,5 +13,7 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		public string? BookName { get; set; }
 		public DateTime? PublicationDate { get; set; }
 		public string? Author { get; set; }
+
+		public string? Editor {  get; set; }
 	}
 }

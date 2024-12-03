@@ -10,7 +10,7 @@ namespace Unicam.Paradigmi.Application.Validators
 		public DeleteBookRequestValidator()
 		{
 			RuleFor(n => n.IdBook)
-			.GreaterThanOrEqualTo(0).WithMessage("Wrong id format");
+			.GreaterThanOrEqualTo(0).WithMessage("Id must be greater than 0");
 		}
 	}
 }

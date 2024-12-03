@@ -10,7 +10,7 @@ namespace Unicam.Paradigmi.Application.Validators
         public DeleteCategoryRequestValidator()
         {
 			RuleFor(n => n.IdCategory)
-				.GreaterThanOrEqualTo(0).WithMessage("Illegal Id format");
+				.GreaterThanOrEqualTo(0).WithMessage("Wrong Id format");
 		}
     }
 }
