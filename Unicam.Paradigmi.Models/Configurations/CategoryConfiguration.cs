@@ -12,7 +12,7 @@ namespace Unicam.Paradigmi.Models.Configurations
 				.HasKey(id => id.IdCategory);
 
 			builder.Property(n => n.CategoryName)
-				.HasMaxLength(11)
+				.HasMaxLength(255)
 				.IsRequired();
 		}
 	}

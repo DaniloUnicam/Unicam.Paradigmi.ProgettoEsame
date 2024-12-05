@@ -13,14 +13,14 @@ namespace Unicam.Paradigmi.Models.Configurations
 
 			builder.Property(b => b.BookName)
 				.IsRequired()
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 
 			builder.Property(b => b.Author)
 				.IsRequired()
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 
 			builder.Property(b => b.Editor)
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 		}
 	}
 }

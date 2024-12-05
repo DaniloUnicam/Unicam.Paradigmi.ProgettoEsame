@@ -13,19 +13,19 @@ namespace Unicam.Paradigmi.Models.Configurations
 
 			builder.Property(u => u.Name)
 				.IsRequired()
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 
 			builder.Property(u => u.Surname)
 				.IsRequired()
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 
 			builder.Property(u => u.Email)
 				.IsRequired()
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 
 			builder.Property(u => u.Password)
 				.IsRequired()
-				.HasMaxLength(11);
+				.HasMaxLength(255);
 
 		}
 	}
