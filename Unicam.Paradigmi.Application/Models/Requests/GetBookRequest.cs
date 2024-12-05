@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Unicam.Paradigmi.Application.Models.Requests
+﻿namespace Unicam.Paradigmi.Application.Models.Requests
 {
 	public class GetBookRequest
 	{
@@ -14,6 +8,6 @@ namespace Unicam.Paradigmi.Application.Models.Requests
 		public DateTime? PublicationDate { get; set; }
 		public string? Author { get; set; }
 
-		public string? Editor {  get; set; }
+		public string? Editor { get; set; }
 	}
 }

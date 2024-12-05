@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unicam.Paradigmi.Application.Abstractions.Services;
-using Unicam.Paradigmi.Models.Context;
+﻿using Unicam.Paradigmi.Application.Abstractions.Services;
 using Unicam.Paradigmi.Models.Entities;
 using Unicam.Paradigmi.Models.Repositories;
 
@@ -13,14 +7,14 @@ namespace Unicam.Paradigmi.Application.Services
 	public class CategoryService : ICategoryService
 	{
 		public readonly CategoryRepository _categoryRepository;
-		public CategoryService(CategoryRepository categoryRepository) 
-        {
+		public CategoryService(CategoryRepository categoryRepository)
+		{
 			_categoryRepository = categoryRepository;
-        }
+		}
 
 		public async Task<Category> CreateCategoryAsync(Category category)
 		{
-			if(await _categoryRepository.CategoryExists(category.CategoryName))
+			if (await _categoryRepository.CategoryExists(category.CategoryName))
 			{
 				throw new InvalidOperationException($"{category.CategoryName} already exists");
 			}

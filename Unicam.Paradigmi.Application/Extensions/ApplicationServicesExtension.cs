@@ -1,8 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using FluentValidation;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Unicam.Paradigmi.Models.Context;
-using FluentValidation;
 using Unicam.Paradigmi.Application.Abstractions.Services;
 using Unicam.Paradigmi.Application.Services;
 

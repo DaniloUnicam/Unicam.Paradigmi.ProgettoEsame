@@ -16,14 +16,14 @@ namespace Unicam.Paradigmi.Web.Controllers
 	{
 		public readonly IUserService _userService;
 
-        public UserController(IUserService userService)
-        {
-            this._userService = userService;
-        }
+		public UserController(IUserService userService)
+		{
+			this._userService = userService;
+		}
 
 		[HttpPost]
 		[Route("create")]
-        public async Task<IActionResult> CreateUserAsync(CreateUserRequest request)
+		public async Task<IActionResult> CreateUserAsync(CreateUserRequest request)
 		{
 			var validateCreatingUser = new CreateUserRequestValidator();
 			validateCreatingUser.Validate(request);

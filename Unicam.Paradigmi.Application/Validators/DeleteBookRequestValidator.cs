@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Unicam.Paradigmi.Application.Models.Requests;
-using Unicam.Paradigmi.Application.Services;
 
 namespace Unicam.Paradigmi.Application.Validators
 {

@@ -11,7 +11,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 
 		public static IQueryable<Book> FilterByBookTitle(IQueryable<Book> query, string? bookName)
 		{
-			if(string.IsNullOrWhiteSpace(bookName))
+			if (string.IsNullOrWhiteSpace(bookName))
 			{
 				return query;
 			}
@@ -23,7 +23,7 @@ namespace Unicam.Paradigmi.Models.Repositories
 
 		public static IQueryable<Book> FilterByPublicationTime(IQueryable<Book> query, DateTime? publicationDate)
 		{
-			if(!publicationDate.HasValue)
+			if (!publicationDate.HasValue)
 			{
 				return query;
 			}

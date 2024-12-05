@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -66,8 +65,8 @@ namespace Unicam.Paradigmi.Web.Extensions
 			});
 			return services;
 		}
-		
-		private static IServiceCollection AddJwtAuthentication (this IServiceCollection services, IConfiguration configuration)
+
+		private static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
 		{
 			var jwtAuthentication = new JwtAuthenticationOption();
 			configuration.GetSection("JwtAuthentication").Bind(jwtAuthentication);

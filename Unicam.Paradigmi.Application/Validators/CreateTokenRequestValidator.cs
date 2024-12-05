@@ -1,21 +1,20 @@
 ﻿using FluentValidation;
-using Unicam.Paradigmi.Application.Models.Requests;
 using Unicam.Paradigmi.Application.Extensions;
+using Unicam.Paradigmi.Application.Models.Requests;
 
 namespace Unicam.Paradigmi.Application.Validators
 {
 	public class CreateTokenRequestValidator : AbstractValidator<CreateTokenRequest>
 	{
-        public CreateTokenRequestValidator()
-        {
+		public CreateTokenRequestValidator()
+		{
 
 			RuleFor(u => u.Password)
 				.NotNullOrEmpty("Password")
-				.MinimumLength(8).WithMessage("Il campo Password deve essere lungo almeno 8 caratteri")
-				.ValidateRegularExpression("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\W).{6,}$\r\n",
-				"Il campo password deve essere lungo almeno 6 caratteri," +
-				" deve contenere un carattere maiuscolo, " +
-				"un carattere minuscolo e un carattere speciale");
+				.MinimumLength(8).WithMessage("The password field must contain at least 8 characters")
+				.ValidateRegularExpression("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\W).{8,}$\r\n",
+				"The password field must contain at least one upper case character," +
+				"a lower case character and a special character.");
 
 			RuleFor(u => u.Email)
 				.NotEmpty().WithMessage("Email field can't be left empty")

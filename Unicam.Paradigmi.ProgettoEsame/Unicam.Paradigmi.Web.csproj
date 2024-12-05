@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Unicam.Paradigmi.Models\Unicam.Paradigmi.ProjectModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="dump-database-sql\" />
+  </ItemGroup>
+
 </Project>

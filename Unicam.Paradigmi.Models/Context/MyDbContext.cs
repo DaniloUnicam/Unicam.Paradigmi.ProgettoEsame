@@ -32,15 +32,14 @@ namespace Unicam.Paradigmi.Models.Context
 		{
 			if (!optionsBuilder.IsConfigured)
 			{
-				string connectionString = "Server =localhost; User ID =enterprise;Password =password;Database =enterprise";
+				string connectionString = "Server=localhost;User ID=paradigmi;Password=password;Database=enterprise;\r\n";
 				optionsBuilder.UseSqlServer(connectionString,
-					(Action<SqlServerDbContextOptionsBuilder>?)retryConnectionFailed())
+					(Action<SqlServerDbContextOptionsBuilder>?)RetryConnectionFailed())
 					.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
 			}
-
 		}
 
-		private static Action<SqlServerDbContextOptionsBuilder> retryConnectionFailed()
+		private static Action<SqlServerDbContextOptionsBuilder> RetryConnectionFailed()
 		{
 			return sqlOptions =>
 			{

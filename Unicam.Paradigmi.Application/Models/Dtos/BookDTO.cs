@@ -1,19 +1,12 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unicam.Paradigmi.Models.Entities;
+﻿using Unicam.Paradigmi.Models.Entities;
 
 namespace Unicam.Paradigmi.Application.Models.Dtos
 {
 	public class BookDTO
-    {
-        public BookDTO() { }
+	{
+		public BookDTO() { }
 		public BookDTO(Book book)
-        {
+		{
 			IdBook = book.IdBook;
 			BookTitle = book.BookName;
 			Author = book.Author;
