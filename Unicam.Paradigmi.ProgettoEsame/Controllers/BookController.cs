@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Unicam.Paradigmi.Application.Abstractions.Services;
 using Unicam.Paradigmi.Application.Factories;
 using Unicam.Paradigmi.Application.Models.Dtos;
@@ -8,6 +9,7 @@ using Unicam.Paradigmi.Application.Validators;
 namespace Unicam.Paradigmi.Web.Controllers
 {
 	[ApiController]
+	[Authorize]
 	[Route("api/v1/[controller]")]
 	public class BookController : ControllerBase
 	{

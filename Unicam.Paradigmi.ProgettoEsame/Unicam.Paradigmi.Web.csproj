@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="dump-database-sql\**" />
+    <Content Remove="dump-database-sql\**" />
+    <EmbeddedResource Remove="dump-database-sql\**" />
+    <None Remove="dump-database-sql\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.35" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
@@ -14,10 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Unicam.Paradigmi.Application\Unicam.Paradigmi.Application.csproj" />
     <ProjectReference Include="..\Unicam.Paradigmi.Models\Unicam.Paradigmi.ProjectModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="dump-database-sql\" />
   </ItemGroup>
 
 </Project>
