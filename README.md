@@ -5,7 +5,7 @@ Realizzazione di una web api che permetta la gestione di un catalogo di una libr
 # Esecuzione Progetto
 
 ## Creazione Database
-Creare il database utilizzando il dump.sql.
+Creare il database utilizzando il dbdump.sql.
 
 Credenziali del Database 'enterprise':
 
