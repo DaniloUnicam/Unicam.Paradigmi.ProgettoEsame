@@ -1,6 +1,6 @@
 # Traccia progetto n.1
 
-## Realizzazione di una web api che permetta la gestione di un catalogo di una libreria.
+Realizzazione di una web api che permetta la gestione di un catalogo di una libreria.
 
 # Esecuzione Progetto
 
