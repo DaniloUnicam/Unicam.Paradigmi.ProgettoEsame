@@ -26,12 +26,7 @@ namespace Unicam.Paradigmi.Application.Services
 		{
 			var user = await _userRepository.GetUserFromEmailAndPassword(email, password);
 
-			if (user == null)
-			{
-				throw new InvalidCredentialException("Invalid email or password");
-			}
-
-			return CreateJwtToken(user);
+			return user == null ? throw new InvalidCredentialException("Invalid email or password") : CreateJwtToken(user);
 		}
 
 		private string CreateJwtToken(User user)
@@ -40,10 +35,11 @@ namespace Unicam.Paradigmi.Application.Services
 			var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 			var claims = new List<Claim>
 			{
-			new("user_id", user.UserId.ToString()),
-			new("Name", user.Name),
-			new("Surname", user.Surname),
-			new("Email", user.Email)
+				new("UserId", user.UserId.ToString()),
+				new("Name", user.Name),
+				new("Surname", user.Surname),
+				new("Email", user.Email),
+				new("Password",user.Password)
 		};
 
 			var jwtSecurityToken = new JwtSecurityToken(_jwtAuthenticationOption.Issuer,

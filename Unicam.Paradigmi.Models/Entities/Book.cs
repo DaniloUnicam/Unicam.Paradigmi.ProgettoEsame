@@ -1,4 +1,6 @@
-﻿namespace Unicam.Paradigmi.Models.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace Unicam.Paradigmi.Models.Entities
 {
 
 	public class Book
@@ -21,7 +23,7 @@
 		public DateTime? PublishDate { get; set; }
 
 		public string Editor { get; set; }
-
+		[JsonIgnore]
 		public List<BookCategory> Categories { get; set; }
 	}
 }

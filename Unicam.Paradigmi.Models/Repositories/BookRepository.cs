@@ -44,23 +44,52 @@ namespace Unicam.Paradigmi.Models.Repositories
 			}
 		}
 
-		public async Task<List<Book>> GetBooksAsync(int page, int pageSize,
-		string? bookName, DateTime? publicationTime, string? author)
+		public async Task<(List<Book> Books, int TotalCount)> GetBooksByFiltersAsync(
+			string? categoryName, string? bookName, DateTime? publicationDate,
+			string? author, string? editor, int page, int pageSize)
 		{
-			var query = _ctx.Books.AsQueryable();
+			var query = _ctx.Books
+				.Include(b => b.Categories)
+				.AsQueryable();
 
-			query = query.Include(b => b.Categories);
+			if (!string.IsNullOrWhiteSpace(categoryName))
+			{
+				query = query.Where(b => b.Categories.Any(c => c.Category.CategoryName.ToLower().Contains(categoryName.ToLower())));
+			}
 
-			query = FilterByBookTitle(query, bookName);
-			query = FilterByPublicationTime(query, publicationTime);
-			query = FilterByAuthor(query, author);
+			if (!string.IsNullOrWhiteSpace(bookName))
+			{
+				query = query.Where(b => b.BookName.ToLower().Contains(bookName.ToLower()));
+			}
 
+			if (publicationDate.HasValue)
+			{
+				query = query.Where(b => b.PublishDate.Value.Date == publicationDate.Value.Date);
+			}
 
-			return await query.OrderBy(q => q.BookName)
-				.Skip(page * pageSize)
-				.Take(pageSize)
+			if (!string.IsNullOrWhiteSpace(author))
+			{
+				query = query.Where(b => b.Author.ToLower().Contains(author.ToLower()));
+			}
+
+			if (!string.IsNullOrWhiteSpace(editor))
+			{
+				query = query.Where(b => b.Editor.ToLower().Contains(editor));
+			}
+
+			// Calcola il totale dei risultati senza impaginazione
+			int totalCount = await query.CountAsync();
+
+			// Applica l'ordinamento, il salto e il limite per l'impaginazione
+			var books = await query
+				.OrderBy(b => b.BookName)
+				.Take(page * pageSize)
 				.ToListAsync();
+
+			return (books, totalCount);
 		}
+
+
 
 		public async Task<Book?> GetBookByIdAsync(int bookId)
 		{

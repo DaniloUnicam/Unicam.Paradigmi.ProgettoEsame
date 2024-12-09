@@ -79,21 +79,48 @@ namespace Unicam.Paradigmi.Web.Controllers
 
 
 		[HttpGet]
-		[Route("get")]
-		public async Task<IActionResult> GetBookAsync(GetBookRequest request)
+		[Route("search")]
+		public async Task<IActionResult> GetBookAsync(
+			[FromQuery] int page,
+			[FromQuery] int pageSize,
+			[FromQuery] string? categoryName,
+			[FromQuery] string? bookName,
+			[FromQuery] DateTime? publicationDate,
+			[FromQuery] string? author,
+			[FromQuery] string? editor)
 		{
+			var request = new GetBookRequest()
+			{
+				Page = page,
+				PageSize = pageSize,
+				CategoryName = categoryName,
+				BookName = bookName,
+				PublicationDate = publicationDate,
+				Author = author,
+				Editor = editor
+			};
+
 			var getBookValidator = new GetBookRequestValidator();
 			getBookValidator.Validate(request);
 
-			var result = await _bookService.GetBookAsync(request.Page, request.PageSize, request.BookName,
-				request.PublicationDate, request.Author);
-
-			var getBookResponse = new GetBookResponse
+			try
 			{
-				Books = result.Select(BookDTOFactory.FromBook).ToList()
-			};
+				var (books, totalCount) = await _bookService.GetBooksByFiltersAsync(
+					categoryName, bookName, publicationDate, author, editor, page, pageSize);
 
-			return Ok(ResponseFactory.WithSuccess(getBookResponse));
+				return Ok(new
+				{
+					TotalCount = totalCount,
+					Page = page,
+					PageSize = pageSize,
+					Books = books
+				});
+			}
+			catch (ArgumentException ex)
+			{
+				return BadRequest(ex.Message);
+			}
 		}
+
 	}
 }

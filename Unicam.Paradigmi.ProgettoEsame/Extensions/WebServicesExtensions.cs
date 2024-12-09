@@ -21,17 +21,29 @@ namespace Unicam.Paradigmi.Web.Extensions
 
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();
-
-			//Validazione automatica 
+			services.AddSwaggerConfig();
+			// Auto Validation
 			//services.AddFluentValidationAutoValidation();
 
 			services.AddJwtAuthentication(configuration);
 
 			services.AddOptions(configuration);
 
+			// Serialization limit (max. 32) to not cause loops
+			services.AddJsonSerializationDepthLimit();
+
 			return services;
 		}
 
+		private static IServiceCollection AddJsonSerializationDepthLimit(this IServiceCollection services)
+		{
+			services.AddControllers()
+				.AddJsonOptions(option =>
+				{
+					option.JsonSerializerOptions.MaxDepth = 32;
+				});
+			return services;
+		}
 
 		private static IServiceCollection AddSwaggerConfig(this IServiceCollection services)
 		{

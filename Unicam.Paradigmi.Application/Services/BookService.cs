@@ -16,11 +16,20 @@ namespace Unicam.Paradigmi.Application.Services
 			_categoryRepository = categoryRepository;
 		}
 
-		public async Task<List<Book>> GetBookAsync(int page, int pageSize,
-		string? bookName, DateTime? publicationTime, string? author)
+		public async Task<(List<Book> Books, int TotalCount)> GetBooksByFiltersAsync(
+	string? categoryName, string? bookName, DateTime? publicationDate,
+	string? author, string? editor, int page, int pageSize)
 		{
-			return await _bookRepository.GetBooksAsync(page, pageSize, bookName, publicationTime, author);
+			if (page < 0 || pageSize <= 0)
+			{
+				throw new ArgumentException("Page and pageSize must be greater than 0.");
+			}
+
+			return await _bookRepository.GetBooksByFiltersAsync(
+				categoryName, bookName, publicationDate, author, editor, page, pageSize);
 		}
+
+
 
 		public async Task<Book> CreateBookAsync(Book book, ICollection<int> categoryIds)
 		{
