@@ -1,5 +1,9 @@
-Traccia progetto n.1: Realizzazione di una web api che permetta la gestione di un catalogo di una libreria.
+Traccia progetto n.1
+
+Realizzazione di una web api che permetta la gestione di un catalogo di una libreria.
+
 Esecuzione Progetto
+
 Creazione Database
 Creare il database utilizzando il dump.sql.
 
