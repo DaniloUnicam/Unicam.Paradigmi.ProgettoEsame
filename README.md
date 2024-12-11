@@ -16,11 +16,11 @@ Credenziali del Database 'enterprise':
 Eseguire il progetto UnicamParadigmi.Web in cui è situato Swagger.
 
 ## Registrazione e Login
-Registrarsi utilizzando una mail non utilizzata e una password che deve essere: 
+Registrarsi utilizzando una mail non utilizzata e una password che deve contenere/essere: 
 + **lunga almeno 6 caratteri**;
-+ **contenere almeno un carattere maiuscolo**;
++ **un carattere maiuscolo**;
 + **un carattere minuscolo**;
-+ **un numero e un carattere speciale**;
++ **un carattere speciale**;
 
 Per il Login: inserire email e password, si otterà il token JWT, necessario ad effettuare tutte le chiamate http.
 
